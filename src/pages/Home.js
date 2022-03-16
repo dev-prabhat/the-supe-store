@@ -1,106 +1,74 @@
 import React from 'react'
-import Navigation from '../components/Navigation'
 import "./style.css"
 import './common.css'
 
-
-import landing_page from '../assests/images/landing_page_image-min.jpg';
-import men_clothing from '../assests/images/men-clothing-thumbnail-min.jpg';
-import winter_collection from '../assests/images/winter-collection-min.jpg';
-import women_clothing from '../assests/images/women-clothing-thumbnail-min.jpg';
+import landing_page from '../assests/images/marvel-tee-1.jpeg';
+import men_tshirt from '../assests/images/Marvel-Men-T-Shirt-1.jpeg';
+import hoodie_collection from '../assests/images/marvel-men-hoodie-1.jpeg';
+import women_tshirt from '../assests/images/marvel-women-tshirt-1.jpeg';
+import jacket_collection from "../assests/images/marvel-men-jacket-2.jpg"
 
 
 
 const Home = () => {
     return (
-        <div class="grid-container">
-            <Navigation />
-            <div class="main-section">
-                <div class="container d-flex">
-                    <div class="card-img position-rel margin-xs">
-                        <img
-                            class="img-responsive"
-                            src={men_clothing}
-                            alt="men_clothing"
-                        />
-                        <div
-                            class="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm"
-                        >
-                            <a class="btn-link" href="/pages/productPage/productPage.html">
-                                Men Collection
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card-img position-rel margin-xs">
-                        <img
-                            class="img-responsive"
-                            src={women_clothing}
-                            alt="women_clothing"
-                        />
-                        <div
-                            class="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm"
-                        >
-                            <a class="btn-link" href="/pages/productPage/productPage.html">
-                                Women Collection
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card-img position-rel margin-xs">
-                        <img
-                            class="img-responsive"
-                            src={winter_collection}
-                            alt="winter_collection"
-                        />
-                        <div
-                            class="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm"
-                        >
-                            <a class="btn-link" href="/pages/productPage/productPage.html">
-                                Winter Collection
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card-img position-rel margin-xs">
-                        <img
-                            class="img-responsive"
-                            src={men_clothing}
-                            alt="men_clothing"
-                        />
-                        <div
-                            class="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm"
-                        >
-                            <a class="btn-link" href="/pages/productPage/productPage.html">
-                                Men Collection
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="card-img position-rel margin-xs">
-                        <img
-                            class="img-responsive"
-                            src={winter_collection}
-                            alt="winter_collection"
-                        />
-                        <div
-                            class="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm"
-                        >
-                            <a class="btn-link" href="/pages/productPage/productPage.html">
-                                Winter Collection
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container">
+        <div className="grid-container">
+            <main className="main-section">
+                <section className="banner-image-container">
                     <img
-                        class="img-responsive"
+                        className="img-responsive"
                         src={landing_page}
                         alt="landing_page"
                     />
-                </div>
-            </div>
+                </section>
+                <p className='text-lg text-center'>Collections</p>
+                <section className="container d-flex">
+                    <div className="card-img position-rel margin-xs">
+                        <img
+                            className="img-responsive"
+                            src={men_tshirt}
+                            alt="men_clothing"
+                        />
+                        <div className="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm">
+                            <p className="btn-link"> Men Tshirt</p>
+                        </div>
+                    </div>
+                    <div className="card-img position-rel margin-xs">
+                        <img
+                            className="img-responsive"
+                            src={women_tshirt}
+                            alt="women_clothing"
+                        />
+                        <div className="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm">
+                            <p className="btn-link">Women Tshirt</p>
+                        </div>
+                    </div>
+                    <div className="card-img position-rel margin-xs">
+                        <img
+                            className="img-responsive"
+                            src={hoodie_collection}
+                            alt="winter_collection"
+                        />
+                        <div className="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm">
+                            <p className="btn-link">
+                                Hoodie Collection
+                            </p>
+                        </div>
+                    </div>
+                    <div className="card-img position-rel margin-xs">
+                        <img
+                            className="img-responsive"
+                            src={jacket_collection}
+                            alt="winter_collection"
+                        />
+                        <div className="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm">
+                            <p className="btn-link">
+                                Jacket Collection
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
     )
 }

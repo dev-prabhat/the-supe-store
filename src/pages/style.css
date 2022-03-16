@@ -6,7 +6,13 @@
 
 .container {
   width: 95%;
-  margin: 0 auto;
+  margin: 1.5rem auto;
+}
+
+.banner-image-container {
+  height: 75vh;
+  width: 80%;
+  margin: 1.5rem auto;
 }
 
 .login-form {
@@ -24,4 +30,5 @@
 
 .card-img {
   width: 25%;
+  height: 50vh;
 }
