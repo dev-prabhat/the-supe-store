@@ -1,5 +1,6 @@
 import React from 'react'
-import data from "../Data"
+import CollectionData from "../Data/CollectionData";
+import CollectionCard from "../components/CollectionCard"
 import "./style.css"
 import './common.css'
 
@@ -21,17 +22,8 @@ const Home = () => {
                 <p className='text-lg text-center'>Collections</p>
                 <section className="container d-flex">
                     {
-                        data.map(({ id, image, name }) => (
-                            <div className="card-img position-rel margin-xs" key={id}>
-                                <img
-                                    className="img-responsive"
-                                    src={image}
-                                    alt="men_clothing"
-                                />
-                                <div className="card-badge-secondary position-abs top-50 left-0 padding-xs d-100 head-sm">
-                                    <p className="btn-link">{name}</p>
-                                </div>
-                            </div>
+                        CollectionData.map(({ id, image, name }) => (
+                            <CollectionCard key={id} image={image} name={name} />
                         ))
                     }
                 </section>
