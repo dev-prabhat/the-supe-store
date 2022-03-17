@@ -16,11 +16,6 @@ const ProductData = [
         image: man_tshirt_3,
         name: "Man Tshirt"
     },
-    // {
-    //     id: 4,
-    //     image: man_tshirt_4,
-    //     name: "Man Tshirt"
-    // },
     {
         id: 5,
         image: man_tshirt_5,
@@ -29,42 +24,42 @@ const ProductData = [
     {
         id: 6,
         image: hoodie_1,
-        name: "Man Tshirt"
+        name: "Hoodie"
     },
     {
         id: 7,
         image: hoodie_2,
-        name: "Man Tshirt"
+        name: "Hoodie"
     },
     {
         id: 8,
         image: hoodie_3,
-        name: "Man Tshirt"
+        name: "Hoodie"
     },
     {
         id: 9,
         image: man_jacket_1,
-        name: "Man Tshirt"
+        name: "Man jacket"
     },
     {
         id: 10,
         image: man_jacket_2,
-        name: "Man Tshirt"
+        name: "Man jacket"
     },
     {
         id: 11,
         image: woman_tshirt_1,
-        name: "Man Tshirt"
+        name: "Woman tshirt"
     },
     {
         id: 12,
         image: woman_tshirt_2,
-        name: "Man Tshirt"
+        name: "Woman tshirt"
     },
     {
         id: 13,
         image: woman_tshirt_3,
-        name: "Man Tshirt"
+        name: "Woman tshirt"
     },
 ]
 
