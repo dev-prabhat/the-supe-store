@@ -1,5 +1,5 @@
 import Home from "./pages/Home"
-import Navigation from './components/Navigation'
+import { Navigation } from './components/index'
 import { Routes, Route } from "react-router-dom"
 import Product from "./pages/Product";
 

@@ -4,7 +4,7 @@ import { FaHeart, FaShoppingCart } from "react-icons/fa";
 const ProductCard = ({ image, name }) => {
     return (
         <div className="card-container vertical-card-container margin-md position-rel">
-            <div className="width-2xl">
+            <div className="width-2xl height-2xl">
                 <img
                     className="img-responsive"
                     src={image}

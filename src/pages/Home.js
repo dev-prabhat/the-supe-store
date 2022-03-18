@@ -1,6 +1,6 @@
 import React from 'react'
 import CollectionData from "../Data/CollectionData";
-import CollectionCard from "../components/CollectionCard"
+import { CollectionCard } from "../components/index"
 import "./style.css"
 import './common.css'
 

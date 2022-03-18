@@ -1,6 +1,5 @@
 import React from "react"
-import Sidebar from "../components/Sidebar"
-import ProductCard from "../components/ProductCard"
+import { ProductCard, Sidebar } from "../components/index"
 import ProductData from "../Data/ProductData"
 import "./product.css"
 import './common.css'
