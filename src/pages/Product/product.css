@@ -1,4 +1,4 @@
-.grid-container {
+.productpage-grid-container {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-areas:
