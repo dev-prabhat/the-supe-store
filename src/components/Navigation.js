@@ -25,16 +25,10 @@ export default function Navigation() {
                 >2</span
                 >
             </a>
-            <a
-                className="badge-container d-inline_block margin-md"
-                href="/pages/cart/cart.html"
-            >
+            <Link to="/cart" className="badge-container d-inline_block margin-md">
                 <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
-                <span
-                    className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl"
-                >2</span
-                >
-            </a>
+                <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">2
+                </span></Link>
             <a
                 className="btn btn-primary btn-link margin-xs d-inline_block"
                 href="/pages/signUp/signUp.html"
