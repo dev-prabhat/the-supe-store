@@ -4,14 +4,16 @@ import ProductData from "../../Data/ProductData"
 import "./product.css"
 import '../common.css'
 
+
+
 const Product = () => {
     return (
-        <main className="grid-container">
+        <main className="productpage-grid-container">
             <Sidebar />
             <section className="content d-flex">
                 {
-                    ProductData.map(({ id, image, name }) => (
-                        <ProductCard key={id} image={image} name={name} />
+                    ProductData.map((Obj) => (
+                        <ProductCard key={Obj._id} product={Obj} />
                     ))
                 }
             </section>
