@@ -1,18 +1,19 @@
 import React from "react"
 import { CartCard } from "../../components"
 import { useCart } from "../../Context/Cart-Context"
+import empty_cart from "../../assests/svg/empty-box.svg"
 import "./cart.css"
 
 const Cart = () => {
     const { cartState } = useCart()
     const { cartItems } = cartState
     return (
-        <div className="grid-container">
+        <div className="cartpage-grid-container">
             <section className="content padding-md">
                 {
                     cartItems.length > 0 ? cartItems.map((product) => (
                         <CartCard product={product} />
-                    )) : <div>Cart is Empty</div>
+                    )) : <div className="empty-cart"><img src={empty_cart} alt="empty_cart" /></div>
                 }
             </section>
 

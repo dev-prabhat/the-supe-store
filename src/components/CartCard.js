@@ -24,9 +24,9 @@ const CartCard = ({ product }) => {
                     <p className="text-md text-gray">50% off</p>
                     <p className="marginL">
                         Quantity:
-                        <button className="quantity-btn border-radius-sm">+</button>
+                        <button className="quantity-btn border-radius-sm" onClick={() => dispatch({ type: "INCREASE_QUANTITY", payload: _id })}>+</button>
                         <p className="quantity-number text-center d-inline_block">{qty}</p>
-                        <button className="quantity-btn border-radius-sm">-</button>
+                        <button className="quantity-btn border-radius-sm" onClick={() => dispatch({ type: "DECREASE_QUANTITY", payload: _id })}>-</button>
                     </p>
                 </div>
                 <button type="button" className="btn btn-primary head-sm" onClick={() => dispatch({ type: "DELETE", payload: _id })}>

@@ -1,9 +1,9 @@
-.grid-container {
+.cartpage-grid-container {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "nav-bar nav-bar nav-bar nav-bar"
-    "content content cart cart";
+    "content content  cart cart";
 }
 
 .content {

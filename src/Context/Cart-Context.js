@@ -24,6 +24,20 @@ const CartProvider = ({ children }) => {
                 return {
                     ...state, cartItems: cartItems.filter(product => product._id !== action.payload)
                 }
+            case "INCREASE_QUANTITY":
+                return {
+                    ...state, cartItems: cartItems.map(item =>
+                        item._id === action.payload ? { ...item, qty: item.qty + 1 } : item
+                    )
+                }
+            case "DECREASE_QUANTITY":
+                return {
+                    ...state, cartItems: cartItems.map(item =>
+                        item._id === action.payload ? (
+                            (item.qty <= 1) ? { ...item, qty: 1 } : { ...item, qty: item.qty - 1 }
+                        ) : item
+                    )
+                }
             default:
                 return state
         }
