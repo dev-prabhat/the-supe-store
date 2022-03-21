@@ -1,10 +1,10 @@
 import React from 'react'
-import CollectionData from "../Data/CollectionData";
-import { CollectionCard } from "../components/index"
+import CollectionData from "../../Data/CollectionData";
+import { CollectionCard } from "../../components/index"
 import "./style.css"
-import './common.css'
+import '../common.css'
 
-import landing_page from '../assests/images/marvel-tee-1.jpeg';
+import landing_page from '../../assests/images/marvel-tee-1.jpeg';
 
 
 
