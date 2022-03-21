@@ -1,9 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useCart } from "../Context/Cart-Context"
+import { useWishlist } from "../Context/Wishlist-Context"
 
 export default function Navigation() {
     const { cartState } = useCart()
+    const { wishlistState } = useWishlist()
     return (
         <nav className="nav-bar d-flex">
             <Link to="/" className="btn-link d-inline_block"><h1 className="head-lg">TheSupeStore</h1></Link>
@@ -17,16 +19,16 @@ export default function Navigation() {
                 />
                 <i className="fas fa-search position-abs top-50 search-icon"></i>
             </div>
-            <a
-                className="badge-container d-inline_block margin-md"
-                href="/pages/wishlist/wishlist.html"
-            >
+            <Link className="badge-container d-inline_block margin-md" to="/wishlist">
                 <i className="far fa-heart badge-link nav-wishlist-icon"></i>
-                <span
-                    className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl"
-                >0</span
-                >
-            </a>
+                {
+                    wishlistState.wishlistItems.length > 0 && <span
+                        className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">
+                        {wishlistState.wishlistItems.length}
+                    </span>
+                }
+
+            </Link>
             <Link to="/cart" className="badge-container d-inline_block margin-md">
                 <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                 {
