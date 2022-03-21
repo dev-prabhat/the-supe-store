@@ -29,8 +29,11 @@ export default function Navigation() {
             </a>
             <Link to="/cart" className="badge-container d-inline_block margin-md">
                 <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
-                <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartState.cartItems.length}
-                </span></Link>
+                {
+                    cartState.cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartState.cartItems.length}
+                    </span>
+                }
+            </Link>
             <a
                 className="btn btn-primary btn-link margin-xs d-inline_block"
                 href="/pages/signUp/signUp.html"

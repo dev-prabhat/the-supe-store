@@ -2,12 +2,12 @@ import React from "react"
 import { useCart } from "../Context/Cart-Context"
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
-const ProductCard = ({ product }) => {
-    const { name, image } = product
+const ProductCard = ({ productObj }) => {
+    const { name, image, price } = productObj
     const { dispatch } = useCart()
 
-    const addItem = (product) => {
-        dispatch({ type: "ADD", payload: { product } })
+    const addItem = (productObj) => {
+        dispatch({ type: "ADD", payload: { productObj } })
     }
     return (
         <div className="card-container vertical-card-container margin-md position-rel">
@@ -21,8 +21,8 @@ const ProductCard = ({ product }) => {
             </div>
             <div className="card-description">
                 <p className="text-md font-weight-semibold text-center">{name}</p>
-                <p className="text-sm text-gray text-center">Rs.499</p>
-                <button type="button" className="btn btn-primary head-sm d-100" onClick={() => addItem(product)}>
+                <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>
+                <button type="button" className="btn btn-primary head-sm d-100" onClick={() => addItem(productObj)}>
                     <FaShoppingCart className="cart-icon" />Add to cart
                 </button>
             </div>

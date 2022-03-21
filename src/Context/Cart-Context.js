@@ -8,14 +8,11 @@ const CartProvider = ({ children }) => {
         const { cartItems } = state
         switch (action.type) {
             case "ADD":
-                const { _id, name, image } = action.payload.product
-                const index = cartItems.findIndex(Obj => Obj._id === _id)
-                if (index === -1) {
-                    return {
-                        ...state, cartItems: [...cartItems, { _id, name, image, qty: 1 }]
-                    }
-                }
-                return {
+                const { _id, name, image, price } = action.payload.productObj;
+                const index = cartItems.findIndex(Obj => Obj._id === _id);
+                return (index === -1) ? {
+                    ...state, cartItems: [...cartItems, { _id, name, image, price, qty: 1 }]
+                } : {
                     ...state, cartItems: cartItems.map(item =>
                         item._id === _id ? { ...item, qty: item.qty + 1 } : item
                     )

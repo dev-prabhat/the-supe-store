@@ -13,7 +13,7 @@ const Product = () => {
             <section className="content d-flex">
                 {
                     ProductData.map((Obj) => (
-                        <ProductCard key={Obj._id} product={Obj} />
+                        <ProductCard key={Obj._id} productObj={Obj} />
                     ))
                 }
             </section>

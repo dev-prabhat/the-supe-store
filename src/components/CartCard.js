@@ -2,7 +2,7 @@ import React from "react"
 import { useCart } from "../Context/Cart-Context"
 
 const CartCard = ({ product }) => {
-    const { _id, name, image, qty } = product
+    const { _id, name, image, qty, price } = product
     const { dispatch } = useCart()
 
     return (
@@ -17,8 +17,8 @@ const CartCard = ({ product }) => {
             <div className="card-description padding-xs">
                 <h3 className="card-title head-lg">{name}</h3>
                 <div className="d-flex">
-                    <p className="text-md font-weight-black">Rs.2000</p>
-                    <p className="text-sm text-strike-through  text-gray marginL">Rs.3999</p>
+                    <p className="text-md font-weight-black">Rs.{price.toLocaleString("en-IN")}</p>
+                    <p className="text-sm text-strike-through text-gray marginL">Rs.3999</p>
                 </div>
                 <div className="d-flex">
                     <p className="text-md text-gray">50% off</p>
