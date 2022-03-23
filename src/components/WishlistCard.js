@@ -1,20 +1,17 @@
 import React from "react"
-import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi";
+import { useCart } from "../Context/Cart-Context";
 
-const ProductCard = ({ productObj }) => {
-    const { name, image, price } = productObj
+const WishlistCard = ({ productObj }) => {
+    const { _id, name, image, price } = productObj
+    const { wishlistDispatch } = useWishlist()
     const { dispatch } = useCart()
 
-    const { wishlistDispatch } = useWishlist()
-
     const addToCart = (productObj) => {
+        const { _id } = productObj
         dispatch({ type: "ADD", payload: productObj })
-    }
-
-    const addToWishlist = (productObj) => {
-        wishlistDispatch({ type: "ADD", payload: productObj })
+        wishlistDispatch({ type: "DELETE", payload: _id })
     }
 
     return (
@@ -25,17 +22,17 @@ const ProductCard = ({ productObj }) => {
                     src={image}
                     alt="black_cap"
                 />
-                <FaHeart className="card-icon badge-link" onClick={() => addToWishlist(productObj)} />
+                <GiCancel className="card-icon badge-link" onClick={() => wishlistDispatch({ type: "DELETE", payload: _id })} />
             </div>
             <div className="card-description">
-                <p className="text-md font-weight-semibold text-center">{name}</p>
-                <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>
+                <h2 className="text-md font-weight-semibold text-center">{name}</h2>
+                <p className="text-sm text-gray text-center">Rs.{price.toLocaleString("en-IN")}</p>
                 <button type="button" className="btn btn-primary head-sm d-100" onClick={() => addToCart(productObj)}>
-                    <FaShoppingCart className="cart-icon" />Add to cart
+                    Move to Cart
                 </button>
             </div>
         </div>
     )
 }
 
-export default ProductCard
+export default WishlistCard

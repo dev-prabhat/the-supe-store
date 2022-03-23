@@ -1,7 +1,6 @@
 import man_tshirt_1 from "./images/Marvel-Men-T-Shirt-1.jpeg"
 import man_tshirt_2 from "./images/marvel-men-tshirt-2.jpg"
 import man_tshirt_3 from "./images/marvel-men-tshirt-3.jpg"
-// import man_tshirt_4 from "./images/marvel-men-tshirt-4.jpeg"
 import man_tshirt_5 from "./images/marvel-men-tshirt-5.jpeg"
 import hoodie_1 from "./images/marvel-men-hoodie-1.jpeg"
 import hoodie_2 from "./images/marvel-men-hoodie-2.jpeg"
