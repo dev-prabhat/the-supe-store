@@ -1,7 +1,6 @@
 import React from "react"
 import { CartCard } from "../../components"
 import { useCart } from "../../Context/Cart-Context"
-import empty_cart from "../../assests/svg/empty-box.svg"
 import "./cart.css"
 
 
@@ -28,8 +27,8 @@ const Cart = () => {
                 cartItems.length > 0 ? <div className="cartpage-grid-container">
                     <section className="content padding-md">
                         {
-                            cartItems.length > 0 && cartItems.map((product) => (
-                                <CartCard product={product} />
+                            cartItems.length > 0 && cartItems.map((productObj) => (
+                                <CartCard key={productObj._id} productObj={productObj} />
                             ))
                         }
                     </section>
@@ -56,9 +55,9 @@ const Cart = () => {
                         </div>
                     </section>
                 </div> :
-                    <div className="empty-cart" >
-                        <img className="img-responsive" src={empty_cart} alt="empty_cart" />
-                    </div>
+                    <section className="padding-md">
+                        <h1 className="text-center head-xl">Your Cart  is Empty</h1>
+                    </section>
             }
         </>
     )

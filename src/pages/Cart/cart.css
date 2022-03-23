@@ -29,10 +29,6 @@
   cursor: pointer;
 }
 
-.empty-cart {
-  width: 50%;
-  margin: 10px auto;
-}
 .quantity-number {
   width: 2rem;
   border: 1px solid var(--light-color);

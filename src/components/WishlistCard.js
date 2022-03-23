@@ -9,7 +9,9 @@ const WishlistCard = ({ productObj }) => {
     const { dispatch } = useCart()
 
     const addToCart = (productObj) => {
-        dispatch({ type: "ADD", payload: { productObj } })
+        const { _id } = productObj
+        dispatch({ type: "ADD", payload: productObj })
+        wishlistDispatch({ type: "DELETE", payload: _id })
     }
 
     return (

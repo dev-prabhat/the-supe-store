@@ -8,13 +8,21 @@ const Wishlist = () => {
     const { wishlistState } = useWishlist()
     const { wishlistItems } = wishlistState
     return (
-        <section className="content d-flex padding-md">
+        <>
             {
-                wishlistItems.length > 0 ? wishlistItems.map(productObj => (
-                    <WishlistCard productObj={productObj} />
-                )) : <div>Wishlist is empty</div>
+                wishlistItems.length > 0 ?
+                    <section className="content d-flex padding-md">
+                        {
+                            wishlistItems.map(productObj => (
+                                <WishlistCard key={productObj._id} productObj={productObj} />
+                            ))
+                        }
+                    </section> :
+                    <section className="padding-md">
+                        <h1 className="text-center head-xl">Your Wishlist is Empty</h1>
+                    </section>
             }
-        </section>
+        </>
     )
 }
 
