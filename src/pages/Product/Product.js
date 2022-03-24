@@ -1,18 +1,19 @@
 import React from "react"
 import { ProductCard, Sidebar } from "../../components/index"
-import ProductData from "../../Data/ProductData"
+import { useFilter } from '../../Context/Filter-Context'
 import "./product.css"
 import '../common.css'
 
 
 
 const Product = () => {
+    const { filteredProduct } = useFilter()
     return (
         <main className="productpage-grid-container">
             <Sidebar />
-            <section className="content d-flex">
+            <section className="productpage-content d-flex">
                 {
-                    ProductData.map((Obj) => (
+                    filteredProduct().map((Obj) => (
                         <ProductCard key={Obj._id} productObj={Obj} />
                     ))
                 }
