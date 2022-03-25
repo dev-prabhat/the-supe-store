@@ -1,10 +1,10 @@
 import React from "react"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
 
 const ProductCard = ({ productObj }) => {
-    const { name, image, price } = productObj
+    const { name, image, price, star, tag } = productObj
     const { dispatch } = useCart()
 
     const { wishlistDispatch } = useWishlist()
@@ -27,6 +27,10 @@ const ProductCard = ({ productObj }) => {
                 />
                 <FaHeart className="card-icon badge-link" onClick={() => addToWishlist(productObj)} />
             </div>
+            {
+                tag && <span className="trending-info padding-xxs font-weight-semibold">{tag}</span>
+            }
+            <span className="rating-info padding-xxs font-weight-semibold">{star} <FaStar className="star-info" /></span>
             <div className="card-description">
                 <p className="text-md font-weight-semibold text-center">{name}</p>
                 <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>

@@ -8,7 +8,8 @@ const ProductData = [
         name: "IronMan Tshirt",
         price: 399,
         categoryName: "T-shirt",
-        star: 2.3
+        star: 2.3,
+        tag: "New"
     },
     {
         _id: uuid(),
@@ -16,7 +17,7 @@ const ProductData = [
         name: "Marvel Tshirt",
         price: 499,
         categoryName: "T-shirt",
-        star: 2.2
+        star: 2.2,
     },
     {
         _id: uuid(),
@@ -24,7 +25,8 @@ const ProductData = [
         name: "Arc Tshirt",
         price: 649,
         categoryName: "T-shirt",
-        star: 3.6
+        star: 3.6,
+        tag: "Trending"
     },
     {
         _id: uuid(),
@@ -40,7 +42,8 @@ const ProductData = [
         name: "Avenger Hoodie",
         price: 1499,
         categoryName: "Hoodie",
-        star: 3.8
+        star: 3.8,
+        tag: "BestSeller"
     },
     {
         _id: uuid(),
@@ -56,7 +59,8 @@ const ProductData = [
         name: "Caption America Jacket",
         price: 1999,
         categoryName: "Jacket",
-        star: 3.7
+        star: 3.7,
+        tag: "New Offer"
     },
     {
         _id: uuid(),
@@ -72,7 +76,8 @@ const ProductData = [
         name: "Marvel tshirt",
         price: 599,
         categoryName: "Woman T-shirt",
-        star: 3.5
+        star: 3.5,
+        tag: "BestSeller"
     },
     {
         _id: uuid(),
@@ -80,7 +85,7 @@ const ProductData = [
         name: "Spidy Tshirt",
         price: 799,
         categoryName: "Woman T-shirt",
-        star: 4.2
+        star: 4.2,
     },
     {
         _id: uuid(),
@@ -88,7 +93,8 @@ const ProductData = [
         name: "Captain Marvel's Tshirt",
         price: 699,
         categoryName: "Woman T-shirt",
-        star: 2.5
+        star: 2.5,
+        tag: "Limited"
     },
 ]
 

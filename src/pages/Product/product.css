@@ -33,3 +33,23 @@
 .margin-lf {
   margin-left: auto;
 }
+
+.rating-info {
+  position: absolute;
+  bottom: 25%;
+  left: 10px;
+  background-color: var(--secondary-theme-color);
+  opacity: 0.8;
+}
+
+.trending-info {
+  position: absolute;
+  top: 3%;
+  left: 5px;
+  background-color: var(--secondary-light-color);
+  opacity: 0.8;
+}
+
+.star-info {
+  color: var(--rating-color);
+}
