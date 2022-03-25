@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom"
 import App from './App';
 import { CartProvider } from './Context/Cart-Context';
+import { FilterProvider } from './Context/Filter-Context';
 import { WishlistProvider } from './Context/Wishlist-Context';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <CartProvider>
-        <WishlistProvider>
-          <App />
-        </WishlistProvider>
-      </CartProvider>
+      <FilterProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <App />
+          </WishlistProvider>
+        </CartProvider>
+      </FilterProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
