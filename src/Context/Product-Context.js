@@ -1,41 +1,40 @@
-
 import React, { createContext, useState, useEffect, useContext } from "react"
 import { useAxios } from "../customHooks/useAxios"
 
 const ProductContext = createContext()
 
 const ProductProvider = ({ children }) => {
-    const [productsFromDB, setProductsFromDB] = useState([])
-    const [categoriesFromDB, setCategoriesFromDB] = useState([])
-    const { response, loading, operation: fetchProducts } = useAxios()
-    const { response: responseFromCategories, operation: fetchCategories } = useAxios()
+    const [productsFromBackend, setProductsFromBackend] = useState([])
+    const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
+    const { response: responseFromProducts, loading: loadingFromProducts, operation: getProducts } = useAxios()
+    const { response: responseFromCategories, operation: getCategories } = useAxios()
 
     useEffect(() => {
-        fetchProducts({ method: "get", url: "/api/products" })
+        getProducts({ method: "get", url: "/api/products" })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-        response !== undefined && setProductsFromDB(response?.products)
-    }, [response])
+        responseFromProducts !== undefined && setProductsFromBackend(responseFromProducts.products)
+    }, [responseFromProducts])
 
     useEffect(() => {
-        fetchCategories({ method: "get", url: "/api/categories" })
+        getCategories({ method: "get", url: "/api/categories" })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
-        responseFromCategories !== undefined && setCategoriesFromDB(responseFromCategories?.categories)
-        setCategoriesFromDB(prev => prev.map(Obj => Obj.categoryName))
+        responseFromCategories !== undefined && setCategoriesFromBackend(responseFromCategories.categories)
+        setCategoriesFromBackend(prev => prev.map(categoryObj => categoryObj.categoryName))
     }, [responseFromCategories])
 
     return (
-        <ProductContext.Provider value={{ productsFromDB, loading, categoriesFromDB }}>
+        <ProductContext.Provider value={{ productsFromBackend, loadingFromProducts, categoriesFromBackend }}>
             {children}
         </ProductContext.Provider>
     )
 }
 
-const useProduct = () => useContext(ProductContext)
+const useProducts = () => useContext(ProductContext)
 
-export { ProductProvider, useProduct }
+export { ProductProvider, useProducts }
