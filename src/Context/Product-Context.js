@@ -16,7 +16,7 @@ const ProductProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        response !== undefined && setProductsFromDB(response.products)
+        response !== undefined && setProductsFromDB(response?.products)
     }, [response])
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const ProductProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        responseFromCategories !== undefined && setCategoriesFromDB(responseFromCategories.categories)
+        responseFromCategories !== undefined && setCategoriesFromDB(responseFromCategories?.categories)
         setCategoriesFromDB(prev => prev.map(Obj => Obj.categoryName))
     }, [responseFromCategories])
 
