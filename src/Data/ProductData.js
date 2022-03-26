@@ -1,10 +1,11 @@
 import { v4 as uuid } from "uuid"
-import { man_tshirt_1, man_tshirt_3, man_tshirt_5, hoodie_1, hoodie_2, hoodie_3, man_jacket_1, man_jacket_2, woman_tshirt_1, woman_tshirt_2, woman_tshirt_3 } from "../assests/index"
+
+const getImg = (imageNumber) => process.env.PUBLIC_URL + `/images/img${imageNumber}.jpg`
 
 const ProductData = [
     {
         _id: uuid(),
-        image: man_tshirt_1,
+        image: getImg(1),
         name: "IronMan Tshirt",
         price: 399,
         categoryName: "T-shirt",
@@ -13,7 +14,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: man_tshirt_3,
+        image: getImg(2),
         name: "Marvel Tshirt",
         price: 499,
         categoryName: "T-shirt",
@@ -21,7 +22,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: man_tshirt_5,
+        image: getImg(3),
         name: "Arc Tshirt",
         price: 649,
         categoryName: "T-shirt",
@@ -30,7 +31,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: hoodie_1,
+        image: getImg(4),
         name: "Spidy Hoodie",
         price: 1249,
         categoryName: "Hoodie",
@@ -38,7 +39,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: hoodie_2,
+        image: getImg(5),
         name: "Avenger Hoodie",
         price: 1499,
         categoryName: "Hoodie",
@@ -47,7 +48,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: hoodie_3,
+        image: getImg(6),
         name: "Marvel Hoodie",
         price: 1799,
         categoryName: "Hoodie",
@@ -55,7 +56,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: man_jacket_1,
+        image: getImg(7),
         name: "Caption America Jacket",
         price: 1999,
         categoryName: "Jacket",
@@ -64,7 +65,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: man_jacket_2,
+        image: getImg(8),
         name: "Avenger's Jacket",
         price: 2299,
         categoryName: "Jacket",
@@ -72,7 +73,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: woman_tshirt_1,
+        image: getImg(9),
         name: "Marvel tshirt",
         price: 599,
         categoryName: "Woman T-shirt",
@@ -81,7 +82,7 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: woman_tshirt_2,
+        image: getImg(10),
         name: "Spidy Tshirt",
         price: 799,
         categoryName: "Woman T-shirt",
@@ -89,7 +90,16 @@ const ProductData = [
     },
     {
         _id: uuid(),
-        image: woman_tshirt_3,
+        image: getImg(11),
+        name: "Captain Marvel's Tshirt",
+        price: 699,
+        categoryName: "Woman T-shirt",
+        star: 2.5,
+        tag: "Limited"
+    },
+    {
+        _id: uuid(),
+        image: getImg(12),
         name: "Captain Marvel's Tshirt",
         price: 699,
         categoryName: "Woman T-shirt",

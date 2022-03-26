@@ -39,15 +39,15 @@ export const products = [
   {
     _id: uuid(),
     image: getImg(4),
-    name: "Spidy Hoodie",
-    price: 1249,
-    categoryName: "Hoodie",
+    name: "Marvel T-shirt",
+    price: 749,
+    categoryName: "T-shirt",
     star: 4.5
   },
   {
     _id: uuid(),
     image: getImg(5),
-    name: "Avenger Hoodie",
+    name: "Spidy Hoodie",
     price: 1499,
     categoryName: "Hoodie",
     star: 3.8,
@@ -56,24 +56,24 @@ export const products = [
   {
     _id: uuid(),
     image: getImg(6),
-    name: "Marvel Hoodie",
-    price: 1799,
+    name: "Avenger Hoodie ",
+    price: 1699,
     categoryName: "Hoodie",
     star: 3.6
   },
   {
     _id: uuid(),
     image: getImg(7),
-    name: "Caption America Jacket",
-    price: 1999,
-    categoryName: "Jacket",
+    name: "Marvel Hoodie",
+    price: 1799,
+    categoryName: "Hoodie",
     star: 3.7,
     tag: "New Offer"
   },
   {
     _id: uuid(),
     image: getImg(8),
-    name: "Avenger's Jacket",
+    name: "Caption America Jacket",
     price: 2299,
     categoryName: "Jacket",
     star: 2.1
@@ -81,9 +81,9 @@ export const products = [
   {
     _id: uuid(),
     image: getImg(9),
-    name: "Marvel tshirt",
-    price: 599,
-    categoryName: "Woman T-shirt",
+    name: "Avenger's Jacket ",
+    price: 1999,
+    categoryName: "Jacket",
     star: 3.5,
     tag: "BestSeller"
   },
