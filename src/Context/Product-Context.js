@@ -4,10 +4,10 @@ import { useAxios } from "../customHooks/useAxios"
 const ProductContext = createContext()
 
 const ProductProvider = ({ children }) => {
-    const [productsFromBackend, setProductsFromBackend] = useState([])
-    const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
-    const { response: responseFromProducts, loading: loadingFromProducts, operation: getProducts } = useAxios()
-    const { response: responseFromCategories, operation: getCategories } = useAxios()
+     const [productsFromBackend, setProductsFromBackend] = useState([])
+     const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
+     const { response: responseFromProducts, loading: loadingFromProducts, operation: getProducts } = useAxios()
+     const { response: responseFromCategories, operation: getCategories } = useAxios()
 
     useEffect(() => {
         getProducts({ method: "get", url: "/api/products" })
