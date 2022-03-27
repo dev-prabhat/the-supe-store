@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react"
-import ProductData from "../Data/ProductData"
+import { useProducts } from "./Product-Context"
 
 const FilterContext = createContext()
 
 const FilterProvider = ({ children }) => {
+    const { productsFromBackend } = useProducts()
     const [filterState, filterDispatch] = useReducer(filterReducer, {
         byPrice: "",
         byCategoryNames: [],
@@ -47,7 +48,7 @@ const FilterProvider = ({ children }) => {
 
     const filteredProduct = () => {
         const { byPrice, byCategoryNames, byRating, price } = filterState
-        let savedProduct = [...ProductData]
+        let savedProduct = [...productsFromBackend]
 
         if (byPrice) {
             savedProduct = savedProduct.sort((a, b) => {

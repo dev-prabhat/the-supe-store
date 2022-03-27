@@ -1,13 +1,15 @@
 import React from "react"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
-import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaStar, FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ productObj }) => {
     const { name, image, price, star, tag } = productObj
     const { dispatch } = useCart()
 
-    const { wishlistDispatch } = useWishlist()
+    const { wishlistDispatch, wishlistState: { wishlistItems } } = useWishlist()
+
+    const isProductInWishList = wishlistItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
 
     const addToCart = (productObj) => {
         dispatch({ type: "ADD", payload: productObj })
@@ -25,7 +27,10 @@ const ProductCard = ({ productObj }) => {
                     src={image}
                     alt="black_cap"
                 />
-                <FaHeart className="card-icon badge-link" onClick={() => addToWishlist(productObj)} />
+                {
+                    isProductInWishList ? <FaHeart className="card-icon badge-link" onClick={() => addToWishlist(productObj)} /> : <FaRegHeart className="card-icon badge-link" onClick={() => addToWishlist(productObj)} />
+                }
+
             </div>
             {
                 tag && <span className="trending-info padding-xxs font-weight-semibold">{tag}</span>

@@ -5,18 +5,24 @@ import App from './App';
 import { CartProvider } from './Context/Cart-Context';
 import { FilterProvider } from './Context/Filter-Context';
 import { WishlistProvider } from './Context/Wishlist-Context';
+import { ProductProvider } from "./Context/Product-Context"
 import reportWebVitals from './reportWebVitals';
+import { makeServer } from "./server"
 
+
+makeServer()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <FilterProvider>
-        <CartProvider>
-          <WishlistProvider>
-            <App />
-          </WishlistProvider>
-        </CartProvider>
-      </FilterProvider>
+      <ProductProvider>
+        <FilterProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
+          </CartProvider>
+        </FilterProvider>
+      </ProductProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

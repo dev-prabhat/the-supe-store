@@ -15,7 +15,7 @@ const WishlistProvider = ({ children }) => {
                     return {
                         ...state, wishlistItems: [...wishlistItems, { ...action.payload }]
                     }
-                return state
+                return { ...state, wishlistItems: wishlistItems.filter(product => product._id === index) }
             case "DELETE":
                 return {
                     ...state, wishlistItems: wishlistItems.filter(product => product._id !== action.payload)

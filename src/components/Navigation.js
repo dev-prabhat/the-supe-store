@@ -46,6 +46,7 @@ export default function Navigation() {
                 href="/pages/login/login.html"
             >Login</a
             >
+            <Link to="/mock"></Link>
         </nav>
     )
 }

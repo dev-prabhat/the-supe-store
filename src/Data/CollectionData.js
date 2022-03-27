@@ -1,28 +1,25 @@
-import men_tshirt from '../assests/images/Marvel-Men-T-Shirt-1.jpeg';
-import hoodie_collection from '../assests/images/marvel-men-hoodie-1.jpeg';
-import women_tshirt from '../assests/images/marvel-women-tshirt-1.jpeg';
-import jacket_collection from "../assests/images/marvel-men-jacket-2.jpg"
+const getImg = (imageNumber) => process.env.PUBLIC_URL + `/images/img${imageNumber}.jpg`
 
 
 const CollectionData = [
     {
         id: 1,
-        image: men_tshirt,
+        image: getImg(1),
         name: "Men Tshirt"
     },
     {
         id: 2,
-        image: hoodie_collection,
+        image: getImg(5),
         name: "Hoodie Collection"
     },
     {
         id: 3,
-        image: women_tshirt,
+        image: getImg(8),
         name: "Women Tshirt"
     },
     {
         id: 4,
-        image: jacket_collection,
+        image: getImg(11),
         name: "Jacket Collection"
     }
 ]
