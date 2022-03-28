@@ -36,16 +36,8 @@ export default function Navigation() {
                     </span>
                 }
             </Link>
-            <a
-                className="btn btn-primary btn-link margin-xs d-inline_block"
-                href="/pages/signUp/signUp.html"
-            >SignUp</a
-            >
-            <a
-                className="btn btn-secondary btn-link margin-xs d-inline_block"
-                href="/pages/login/login.html"
-            >Login</a
-            >
+            <Link to="/signUp" className="btn btn-primary btn-link margin-xs d-inline_block">SignUp</Link>
+            <Link to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</Link>
             <Link to="/mock"></Link>
         </nav>
     )

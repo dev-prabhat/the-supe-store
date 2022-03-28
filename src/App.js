@@ -1,6 +1,6 @@
 import { Navigation } from './components/index'
 import { Routes, Route } from "react-router-dom"
-import { Home, Product, Cart, Wishlist, Mock } from "./pages/index"
+import { Home, Product, Cart, Wishlist, Mock, SignUp, Login } from "./pages/index"
 
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/mock" element={<Mock />} />
       </Routes>
     </>
