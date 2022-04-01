@@ -9,6 +9,10 @@ const CartProvider = ({ children }) => {
     function cartReducer(state, action) {
         const { cartItems } = state
         switch (action.type) {
+            case "GET":
+                return {
+                    ...state, cartItems: [...action.payload]
+                }
             case "ADD":
                 return {
                     ...state, cartItems: [...cartItems, action.payload]
@@ -17,18 +21,10 @@ const CartProvider = ({ children }) => {
                 return {
                     ...state, cartItems: [...action.payload]
                 }
-            case "INCREASE_QUANTITY":
+            case "CHANGE_QUANTITY":
                 return {
                     ...state, cartItems: cartItems.map(item =>
                         item._id === action.payload._id ? { ...item, qty: action.payload.qty } : item
-                    )
-                }
-            case "DECREASE_QUANTITY":
-                return {
-                    ...state, cartItems: cartItems.map(item =>
-                        item._id === action.payload._id ? (
-                            (item.qty <= 1) ? { ...item, qty: 1 } : { ...item, qty: action.payload.qty }
-                        ) : item
                     )
                 }
             default:
@@ -40,13 +36,14 @@ const CartProvider = ({ children }) => {
         const encodedToken = localStorage.getItem("token");
         const config = { headers: { "authorization": encodedToken } }
         try {
+            toast.info("Please Wait")
             const { data } = await axios.post("/api/user/cart", { product }, config)
             const res = data.cart.find(Obj => Obj._id === product._id)
             dispatch({ type: "ADD", payload: res })
             toast("Added")
         }
-        catch (e) {
-            console.log(e)
+        catch (error) {
+            toast.error(error.response.data.errors[0])
         }
     }
 
@@ -56,9 +53,10 @@ const CartProvider = ({ children }) => {
         try {
             const { data } = await axios.delete(`/api/user/cart/${productID}`, config)
             dispatch({ type: "DELETE", payload: data.cart })
+            toast("Removed")
         }
-        catch (e) {
-            console.log(e)
+        catch (error) {
+            toast.error(error.response.data.errors[0])
         }
     }
 
@@ -66,15 +64,18 @@ const CartProvider = ({ children }) => {
         const encodedToken = localStorage.getItem("token");
         const config = { headers: { "authorization": encodedToken } }
         try {
+            toast.info("Please Wait")
             const { data } = await axios.post(`/api/user/cart/${productID}`, {
                 action: {
                     type: "increment"
                 }
             }, config)
             const product = data.cart.find(Obj => Obj._id === productID)
-            dispatch({ type: "INCREASE_QUANTITY", payload: product })
-        } catch (error) {
-            console.log(error)
+            dispatch({ type: "CHANGE_QUANTITY", payload: product })
+            toast("Incremented")
+        }
+        catch (error) {
+            toast.error(error.response.data.errors[0])
         }
     }
 
@@ -82,15 +83,19 @@ const CartProvider = ({ children }) => {
         const encodedToken = localStorage.getItem("token");
         const config = { headers: { "authorization": encodedToken } }
         try {
+            toast.info("Please Wait")
             const { data } = await axios.post(`/api/user/cart/${productID}`, {
                 action: {
                     type: "decrement"
                 }
             }, config)
             const product = data.cart.find(Obj => Obj._id === productID)
-            dispatch({ type: "DECREASE_QUANTITY", payload: product })
-        } catch (error) {
-            console.log(error)
+            dispatch({ type: "CHANGE_QUANTITY", payload: product })
+            if (product.qty < 1) deleteFromCart(productID)
+            else toast("Decremented")
+        }
+        catch (error) {
+            toast.error(error.response.data.errors[0])
         }
     }
 
@@ -99,10 +104,10 @@ const CartProvider = ({ children }) => {
         const config = { headers: { "authorization": encodedToken } }
         try {
             const { data } = await axios.get("/api/user/cart", config)
-            console.log(data)
+            dispatch({ type: "GET", payload: data.cart })
         }
-        catch (e) {
-            console.log(e.response)
+        catch (error) {
+            toast.error(error.response.data.errors[0])
         }
     }
 
