@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
 import { useAuth } from "../Context/Auth-Context"
@@ -15,6 +16,16 @@ const ProductCard = ({ productObj }) => {
     const isProductInWishList = wishlistItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
     const isProductInCart = cartItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
 
+    const cartHandler = (productObj) => {
+        if (token) addToCart(productObj)
+        else toast("Please Login")
+    }
+
+    const wishListHandler = (productObj) => {
+        if (token) addToWishList(productObj)
+        else toast("Please Login")
+    }
+
     return (
         <div className="card-container vertical-card-container margin-md position-rel">
             <div className="width-2xl height-2xl">
@@ -26,11 +37,10 @@ const ProductCard = ({ productObj }) => {
                 {
                     isProductInWishList
                         ? <FaHeart
-                            className="card-icon badge-link"
-                            onClick={() => addToWishList(productObj)} />
+                            className="card-icon badge-link" />
                         : <FaRegHeart
                             className="card-icon badge-link"
-                            onClick={() => addToWishList(productObj)} />
+                            onClick={() => wishListHandler(productObj)} />
                 }
             </div>
             {
@@ -41,7 +51,7 @@ const ProductCard = ({ productObj }) => {
                 <p className="text-md font-weight-semibold text-center">{name}</p>
                 <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>
                 {
-                    (isProductInCart && token)
+                    isProductInCart
                         ? <Link
                             to="/cart"
                             className="btn btn-primary btn-link head-sm d-100 d-inline_block text-center">
@@ -50,7 +60,7 @@ const ProductCard = ({ productObj }) => {
                         : <button
                             type="button"
                             className="btn btn-primary head-sm d-100"
-                            onClick={() => addToCart(productObj)}>
+                            onClick={() => cartHandler(productObj)}>
                             <FaShoppingCart className="cart-icon" />Add to cart
                         </button>
                 }

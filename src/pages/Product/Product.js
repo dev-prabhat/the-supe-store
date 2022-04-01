@@ -1,9 +1,7 @@
 import React from "react"
-import { ToastContainer } from "react-toastify"
 import { ProductCard, Sidebar } from "../../components/index"
 import { useFilter } from '../../Context/Filter-Context'
 import { useProducts } from "../../Context/Product-Context"
-import 'react-toastify/dist/ReactToastify.css';
 import "./product.css"
 import '../common.css'
 
@@ -16,15 +14,6 @@ const Product = () => {
     return (
         <main className="productpage-grid-container">
             <Sidebar />
-            <ToastContainer position="bottom-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover />
             {
                 loadingFromProducts ?
                     <section className="padding-md">

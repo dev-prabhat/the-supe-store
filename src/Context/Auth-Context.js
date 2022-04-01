@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 import axios from "axios"
 
 const AuthContext = createContext()
@@ -30,7 +31,7 @@ const AuthProvider = ({ children }) => {
             setNewUser({ firstName: "", lastName: "", email: "", password: "" })
         }
         catch (e) {
-            console.log(e.response.data)
+            toast(e.response.data.errors[0])
             setNewUser({ firstName: "", lastName: "", email: "", password: "" })
         }
     }
@@ -43,10 +44,11 @@ const AuthProvider = ({ children }) => {
             })
             localStorage.setItem("token", response.data.encodedToken)
             setToken(JSON.stringify(localStorage.getItem("token")))
+            toast("Logged In")
             navigate("/product", { replace: true })
         }
         catch (e) {
-            console.log(e.response.data)
+            toast.error(e.response.data.errors[0])
         }
     }
 
