@@ -11,7 +11,7 @@ function App() {
     <>
       <Navigation />
       <ToastContainer position="bottom-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -21,7 +21,7 @@ function App() {
         pauseOnHover />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/products" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/signup" element={<SignUp />} />
