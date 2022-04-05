@@ -6,8 +6,8 @@ const ProductContext = createContext()
 const ProductProvider = ({ children }) => {
      const [productsFromBackend, setProductsFromBackend] = useState([])
      const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
-     const { response: responseFromProducts, loading: loadingFromProducts, operation: getProducts } = useAxios()
-     const { response: responseFromCategories, operation: getCategories } = useAxios()
+     const { response: responseFromProduct, loading: loadingFromProduct, operation: getProducts } = useAxios()
+     const { response: responseFromCategory, operation: getCategories } = useAxios()
 
     useEffect(() => {
         getProducts({ method: "get", url: "/api/products" })
@@ -15,8 +15,8 @@ const ProductProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        responseFromProducts !== undefined && setProductsFromBackend(responseFromProducts.products)
-    }, [responseFromProducts])
+        responseFromProduct !== undefined && setProductsFromBackend(responseFromProduct.products)
+    }, [responseFromProduct])
 
     useEffect(() => {
         getCategories({ method: "get", url: "/api/categories" })
@@ -24,12 +24,11 @@ const ProductProvider = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        responseFromCategories !== undefined && setCategoriesFromBackend(responseFromCategories.categories)
-        setCategoriesFromBackend(prev => prev.map(categoryObj => categoryObj.categoryName))
-    }, [responseFromCategories])
+        responseFromCategory !== undefined && setCategoriesFromBackend(responseFromCategory.categories)
+    }, [responseFromCategory])
 
     return (
-        <ProductContext.Provider value={{ productsFromBackend, loadingFromProducts, categoriesFromBackend }}>
+        <ProductContext.Provider value={{ productsFromBackend,loadingFromProduct,categoriesFromBackend }}>
             {children}
         </ProductContext.Provider>
     )

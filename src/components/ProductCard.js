@@ -9,9 +9,9 @@ import { FaHeart, FaShoppingCart, FaStar, FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ productObj }) => {
     const { name, image, price, star, tag } = productObj
-    const { cartState: { cartItems }, addToCart } = useCart()
+    const {  cartItems , addToCart } = useCart()
     const { token } = useAuth()
-    const { addToWishList, wishlistState: { wishlistItems } } = useWishlist()
+    const { addToWishList, wishlistItems  } = useWishlist()
 
     const isProductInWishList = wishlistItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
     const isProductInCart = cartItems.findIndex(p => p._id === productObj._id) === -1 ? false : true

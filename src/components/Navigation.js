@@ -1,19 +1,18 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
 import { useAuth } from "../Context/Auth-Context"
 
 export default function Navigation() {
-    const { cartState } = useCart()
-    const { wishlistState } = useWishlist()
+    const { cartItems } = useCart()
+    const { wishlistItems } = useWishlist()
     const { token, logoutHandler } = useAuth()
 
     return (
         <nav className="nav-bar d-flex">
-            <Link to="/" className="btn-link d-inline_block"><h1 className="head-lg">TheSupeStore</h1></Link>
-            <Link to="/" className="btn-link d-inline_block"><h1 className="head-sm">Home</h1></Link>
-            <Link to="/product" className="btn-link d-inline_block"><h1 className="head-sm">Products</h1></Link>
+            <NavLink to="/" className="btn-link d-inline_block"><h1 className="head-lg">TheSupeStore</h1></NavLink>
+            <NavLink to="/products" className="btn-link d-inline_block"><h1 className="head-sm">Products</h1></NavLink>
             <div className="search-container position-rel">
                 <input
                     className="text-center padding-xs form-field border-radius-xs padding-xs text-sm"
@@ -23,38 +22,38 @@ export default function Navigation() {
                 <i className="fas fa-search position-abs top-50 search-icon"></i>
             </div>
             {
-                token && <Link className="badge-container d-inline_block margin-sm" to="/wishlist">
+                token && <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
-                        wishlistState.wishlistItems.length > 0 && <span
+                        wishlistItems.length > 0 && <span
                             className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">
-                            {wishlistState.wishlistItems.length}
+                            {wishlistItems.length}
                         </span>
                     }
 
-                </Link>
+                </NavLink>
             }
 
             {
-                token && <Link to="/cart" className="badge-container d-inline_block margin-sm">
+                token && <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
-                        cartState.cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartState.cartItems.length}
+                        cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
-                </Link>
+                </NavLink>
             }
 
             {
                 token ? <button className="btn btn-primary margin-xs" onClick={logoutHandler}>Logout</button> : (
                     <>
-                        <Link to="/signup" className="btn btn-primary btn-link margin-xs d-inline_block">SignUp</Link>
-                        <Link to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</Link>
+                        <NavLink to="/signup" className="btn btn-primary btn-link margin-xs d-inline_block">SignUp</NavLink>
+                        <NavLink to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</NavLink>
                     </>
                 )
             }
 
-            <Link to="/mock"></Link>
+            <NavLink to="/mock"/>
         </nav>
     )
 }

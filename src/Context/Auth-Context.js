@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
             })
             localStorage.setItem("token", response.data.encodedToken)
             setToken(JSON.stringify(localStorage.getItem("token")))
-            navigate("/product", { replace: true })
+            navigate("/products", { replace: true })
             setNewUser({ firstName: "", lastName: "", email: "", password: "" })
         }
         catch (e) {
@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem("token", response.data.encodedToken)
             setToken(JSON.stringify(localStorage.getItem("token")))
             toast("Logged In")
-            navigate("/product", { replace: true })
+            navigate("/products", { replace: true })
         }
         catch (e) {
             toast.error(e.response.data.errors[0])

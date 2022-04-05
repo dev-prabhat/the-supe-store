@@ -7,12 +7,16 @@ import { useWishlist } from "../Context/Wishlist-Context"
 const CartCard = ({ productObj }) => {
     const { _id, name, image, qty, price } = productObj
     const { decreaseQty, deleteFromCart, increaseQty } = useCart()
-    const { addToWishList, wishlistState: { wishlistItems } } = useWishlist()
+    const { addToWishList,  wishlistItems  } = useWishlist()
 
     const isProductInWishList = wishlistItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
 
     const moveToWishlist = (productObj) => {
         isProductInWishList ? toast("Already Present") : addToWishList(productObj)
+    }
+
+    const decreaseQtyHandler = (_id,qty) => {
+        qty <= 1 ? deleteFromCart(_id) : decreaseQty(_id)
     }
 
     return (
@@ -34,7 +38,7 @@ const CartCard = ({ productObj }) => {
                     <p className="text-md text-gray">50% off</p>
                     <div className="marginL">
                         Quantity:
-                        <button className="quantity-btn border-radius-sm" onClick={() => decreaseQty(_id)}>-</button>
+                        <button className="quantity-btn border-radius-sm" onClick={() => decreaseQtyHandler(_id,qty)}>-</button>
                         <p className="quantity-number text-center d-inline_block">{qty}</p>
                         <button className="quantity-btn border-radius-sm" onClick={() => increaseQty(_id)}>+</button>
                     </div>
