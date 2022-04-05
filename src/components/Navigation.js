@@ -5,8 +5,8 @@ import { useWishlist } from "../Context/Wishlist-Context"
 import { useAuth } from "../Context/Auth-Context"
 
 export default function Navigation() {
-    const { cartState } = useCart()
-    const { wishlistState } = useWishlist()
+    const { cartItems } = useCart()
+    const { wishlistItems } = useWishlist()
     const { token, logoutHandler } = useAuth()
 
     return (
@@ -25,9 +25,9 @@ export default function Navigation() {
                 token && <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
-                        wishlistState.wishlistItems.length > 0 && <span
+                        wishlistItems.length > 0 && <span
                             className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">
-                            {wishlistState.wishlistItems.length}
+                            {wishlistItems.length}
                         </span>
                     }
 
@@ -38,7 +38,7 @@ export default function Navigation() {
                 token && <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
-                        cartState.cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartState.cartItems.length}
+                        cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
                 </NavLink>

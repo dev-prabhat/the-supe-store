@@ -5,8 +5,7 @@ import { useWishlist } from "../../Context/Wishlist-Context"
 import { WishlistCard } from "../../components"
 
 const Wishlist = () => {
-    const { wishlistState } = useWishlist()
-    const { wishlistItems } = wishlistState
+    const { wishlistItems } = useWishlist()
     return (
         <>
             {

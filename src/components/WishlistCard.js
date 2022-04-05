@@ -9,7 +9,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const WishlistCard = ({ productObj }) => {
     const { _id, name, image, price } = productObj
     const { deleteFromWishList } = useWishlist()
-    const { addToCart, cartState: { cartItems } } = useCart()
+    const { addToCart, cartItems } = useCart()
     const { token } = useAuth()
 
 

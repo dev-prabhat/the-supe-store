@@ -1,80 +1,49 @@
-import React, { createContext, useReducer, useContext, useEffect } from "react"
-import { toast } from "react-toastify"
-import axios from "axios"
+import React, { createContext, useContext, useEffect, useState } from "react"
+import {useAxios} from "../customHooks/useAxios"
 
 const WishlistContext = createContext()
 
 const WishlistProvider = ({ children }) => {
-    const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, { wishlistItems: [] })
+    const {response,operation} = useAxios()
+    const [wishlistItems, setWishlistItems] = useState([])
+    // const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, { wishlistItems: [] })
 
-    function wishlistReducer(state, action) {
-        const { wishlistItems } = state
-        switch (action.type) {
-            case "GET":
-                return {
-                    ...state, wishlistItems: [...action.payload]
-                }
-            case "ADD":
-                return {
-                    ...state, wishlistItems: [...wishlistItems, action.payload]
-                }
-            case "DELETE":
-                return {
-                    ...state, wishlistItems: [...action.payload]
-                }
-            default:
-                return state
-        }
-    }
-
+    // function wishlistReducer(state, action) {
+    //     switch (action.type) {
+    //         case "WISHLIST_SUCCESS":
+    //             return {
+    //                 ...state, wishlistItems: [...action.payload]
+    //             }
+    //         default:
+    //             return state
+    //     }
+    // }
 
     const addToWishList = async (product) => {
         const encodedToken = localStorage.getItem("token");
-        const config = { headers: { "authorization": encodedToken } }
-        try {
-            toast.info("Please wait")
-            const { data } = await axios.post("/api/user/wishlist", { product }, config)
-            const res = data.wishlist.find(Obj => Obj._id === product._id)
-            wishlistDispatch({ type: "ADD", payload: res })
-            toast("WishListed")
-        }
-        catch (error) {
-            toast.error(error.response.data.errors[0])
-        }
+        operation({
+            method:"post",
+            url:"/api/user/wishlist",
+            headers: { "authorization": encodedToken },
+            data:{product:product}
+        })
     }
 
     const deleteFromWishList = async (productId) => {
         const encodedToken = localStorage.getItem("token");
-        const config = { headers: { "authorization": encodedToken } }
-        try {
-            toast.info("Please wait")
-            const { data } = await axios.delete(`/api/user/wishlist/${productId}`, config)
-            wishlistDispatch({ type: "DELETE", payload: data.wishlist })
-            toast("Removed")
-        } catch (error) {
-            toast.error(error.response.data.errors[0])
-        }
+        operation({
+            method:"delete",
+            url:`/api/user/wishlist/${productId}`,
+            headers: { "authorization": encodedToken }
+        })
     }
 
-    const getProductsFromWishList = async () => {
-        const encodedToken = localStorage.getItem("token");
-        const config = { headers: { "authorization": encodedToken } }
-        try {
-            const { data } = await axios.get("/api/user/wishlist", config)
-            wishlistDispatch({ type: "GET", payload: data.wishlist })
-        } catch (error) {
-            toast.error(error.response.data.errors[0])
-        }
-    }
-
-    useEffect(() => {
-        const encodedToken = localStorage.getItem("token");
-        if (encodedToken) getProductsFromWishList()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    useEffect(()=>{
+        response !== undefined && setWishlistItems(response.wishlist)
+      },[response])
 
     return (
-        <WishlistContext.Provider value={{ wishlistState, wishlistDispatch, addToWishList, deleteFromWishList }}>
+        <WishlistContext.Provider value={{ wishlistItems, addToWishList, deleteFromWishList }}>
             {children}
         </WishlistContext.Provider>
     )

@@ -1,14 +1,11 @@
 import React from "react"
-import { ToastContainer } from "react-toastify"
 import { CartCard } from "../../components"
 import { useCart } from "../../Context/Cart-Context"
-import 'react-toastify/dist/ReactToastify.css';
 import "./cart.css"
 
 
 const Cart = () => {
-    const { cartState } = useCart()
-    const { cartItems } = cartState
+    const { cartItems } = useCart()
 
     const initialState = {
         price: 0,
@@ -55,15 +52,6 @@ const Cart = () => {
                             </div>
                             <button className="btn btn-primary d-100 text-sm">Place Order</button>
                         </div>
-                        <ToastContainer position="bottom-right"
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover />
                     </section>
                 </div> :
                     <section className="padding-md">
