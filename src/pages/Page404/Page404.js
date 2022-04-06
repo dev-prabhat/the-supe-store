@@ -8,8 +8,8 @@ export const Page404 = () => {
     
    return(
        <div className="main404">
-           <h1 className="head-lg text-center padding-md">Hi buddy , I think you are on wrong page 
-           <Link to="/products" className="btn-link text-center head-md">Click here</Link>
+           <h1 className="head-md text-center padding-md">Hi buddy , I think you are on wrong page 
+           <Link to="/products" className="btn-link text-center head-lg">Click here</Link>
            to checkout different Products.
            </h1>
            <div className="img-container padding-sm">
