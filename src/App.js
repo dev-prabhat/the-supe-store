@@ -1,7 +1,7 @@
 import { Navigation } from './components/index'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
-import { Home, Product, Cart, Wishlist, Mock, SignUp, Login } from "./pages/index"
+import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 } from "./pages/index"
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -27,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/mock" element={<Mock />} />
+        <Route path="*" element={<Page404/>} />
       </Routes>
     </>
   );
