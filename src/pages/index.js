@@ -5,5 +5,6 @@ import Wishlist from "./Wishlist/Wishlist"
 import { Mock } from "./Mock/mock"
 import { SignUp } from "./Signup/SignUp"
 import { Login } from "./Login/Login"
+import {Page404} from './Page404/Page404'
 
-export { Home, Product, Cart, Wishlist, Mock, SignUp, Login }
+export { Home, Product, Cart, Wishlist, Mock, SignUp, Login,Page404 }
