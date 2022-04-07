@@ -10,9 +10,8 @@
 }
 
 .banner-image-container {
-  height: 75vh;
-  width: 80%;
-  margin: 1.5rem auto;
+  height: 85vh;
+  margin: 5px auto;
 }
 
 .login-form {
@@ -29,6 +28,7 @@
 }
 
 .card-img {
+  cursor: pointer;
   width: 25%;
   height: 50vh;
 }

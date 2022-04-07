@@ -26,6 +26,11 @@ const FilterProvider = ({ children }) => {
                     ...state,
                     byCategoryNames: state.byCategoryNames.filter(ele => ele !== action.payload)
                 }
+            case "FILTER_FROM_HOMEPAGE":
+                return{
+                    ...state,
+                    byCategoryNames:[action.payload]
+                }
             case "SORT_BY_RATING":
                 return {
                     ...state, byRating: action.payload
