@@ -10,16 +10,19 @@ const Cart = () => {
     const initialState = {
         price: 0,
         qty: 0,
-        deliveryCost: 0,
+        delivery: 0,
         discount: 0
     }
 
     const checkout = cartItems.reduce((acc, currentProduct) => ({
         ...acc,
         qty: acc.qty + currentProduct.qty,
-        price: acc.price + currentProduct.price * currentProduct.qty
+        price: acc.price + currentProduct.price * currentProduct.qty,
+        delivery:acc.delivery + currentProduct.delivery * currentProduct.qty,
+        discount: acc.discount + currentProduct.discount
     }), initialState)
 
+    
     return (
         <>
             {
@@ -44,11 +47,11 @@ const Cart = () => {
                             </div>
                             <div className="d-flex">
                                 <p className="text-sm">Delivery Charges</p>
-                                <span className="marginL">Rs{checkout.deliveryCost}</span>
+                                <span className="marginL">Rs{checkout.delivery}</span>
                             </div>
                             <div className="d-flex">
                                 <h3 className="head-md">Total Amount</h3>
-                                <span className="marginL">Rs{checkout.price - checkout.discount + checkout.deliveryCost}</span>
+                                <span className="marginL">Rs{checkout.price - checkout.discount + checkout.delivery}</span>
                             </div>
                             <button className="btn btn-primary d-100 text-sm">Place Order</button>
                         </div>

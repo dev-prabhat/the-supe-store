@@ -16,6 +16,8 @@ export const products = [
     name: "IronMan Tshirt",
     price: 399,
     categoryName: "T-shirt",
+    delivery:40,
+    discount:50,
     star: 2.3,
     tag: "New"
   },
@@ -25,6 +27,8 @@ export const products = [
     name: "Marvel Tshirt",
     price: 499,
     categoryName: "T-shirt",
+    delivery:40,
+    discount:50,
     star: 2.2,
   },
   {
@@ -33,6 +37,8 @@ export const products = [
     name: "Arc Tshirt",
     price: 649,
     categoryName: "T-shirt",
+    delivery:40,
+    discount:50,
     star: 3.6,
     tag: "Trending"
   },
@@ -42,6 +48,8 @@ export const products = [
     name: "Marvel T-shirt",
     price: 749,
     categoryName: "T-shirt",
+    delivery:40,
+    discount:50,
     star: 4.5
   },
   {
@@ -50,6 +58,8 @@ export const products = [
     name: "Spidy Hoodie",
     price: 1499,
     categoryName: "Hoodie",
+    delivery:40,
+    discount:50,
     star: 3.8,
     tag: "BestSeller"
   },
@@ -59,6 +69,8 @@ export const products = [
     name: "Avenger Hoodie ",
     price: 1699,
     categoryName: "Hoodie",
+    delivery:40,
+    discount:50,
     star: 3.6
   },
   {
@@ -67,6 +79,8 @@ export const products = [
     name: "Marvel Hoodie",
     price: 1799,
     categoryName: "Hoodie",
+    delivery:40,
+    discount:50,
     star: 3.7,
     tag: "New Offer"
   },
@@ -76,6 +90,8 @@ export const products = [
     name: "Caption America Jacket",
     price: 2299,
     categoryName: "Jacket",
+    delivery:40,
+    discount:50,
     star: 2.1
   },
   {
@@ -84,6 +100,8 @@ export const products = [
     name: "Avenger's Jacket ",
     price: 1999,
     categoryName: "Jacket",
+    delivery:40,
+    discount:50,
     star: 3.5,
     tag: "BestSeller"
   },
@@ -93,6 +111,8 @@ export const products = [
     name: "Spidy Tshirt",
     price: 799,
     categoryName: "Woman T-shirt",
+    delivery:40,
+    discount:50,
     star: 4.2,
   },
   {
@@ -101,6 +121,8 @@ export const products = [
     name: "Captain Marvel's Tshirt",
     price: 699,
     categoryName: "Woman T-shirt",
+    delivery:40,
+    discount:50,
     star: 2.5,
     tag: "Limited"
   },
@@ -110,6 +132,8 @@ export const products = [
     name: "Captain Marvel's Tshirt",
     price: 699,
     categoryName: "Woman T-shirt",
+    delivery:40,
+    discount:50,
     star: 2.5,
     tag: "Limited"
   },
