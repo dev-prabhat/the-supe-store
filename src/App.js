@@ -1,8 +1,9 @@
-import { Navigation } from './components/index'
+import { Navigation , PrivateRoute} from './components/index'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 } from "./pages/index"
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthRoute } from './components/AuthRoute';
 
 
 
@@ -22,10 +23,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+
+         <Route element={<PrivateRoute/>}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+         </Route>
+        
+         <Route element={<AuthRoute/>}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+         </Route>
+        
         <Route path="/mock" element={<Mock />} />
         <Route path="*" element={<Page404/>} />
       </Routes>

@@ -21,8 +21,7 @@ export default function Navigation() {
                 />
                 <i className="fas fa-search position-abs top-50 search-icon"></i>
             </div>
-            {
-                token && <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
+            <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
                         wishlistItems.length > 0 && <span
@@ -31,19 +30,15 @@ export default function Navigation() {
                         </span>
                     }
 
-                </NavLink>
-            }
+            </NavLink>
 
-            {
-                token && <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
+            <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
                         cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
-                </NavLink>
-            }
-
+            </NavLink>
             {
                 token ? <button className="btn btn-primary margin-xs" onClick={logoutHandler}>Logout</button> : (
                     <>
