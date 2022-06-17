@@ -46,7 +46,6 @@ export default function Navigation() {
                 )
             }
 
-            <NavLink to="/mock"/>
         </nav>
     )
 }

@@ -5,9 +5,7 @@
 
 .banner-image-container {
   height: 35rem;
-  width: 70rem;
-  margin: 10px auto;
-  position: relative;
+  margin: 10px;
 }
 
 .category-container {
@@ -23,11 +21,3 @@
   height: 22rem;
 }
 
-.login-form {
-  height: 80vh;
-  justify-content: center;
-}
-
-.form-container {
-  width: 30%;
-}

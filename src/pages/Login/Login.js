@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useAuth } from "../../Context"
 import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
-import "./Login.css"
+import "./login.css"
 
 export const Login = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -16,8 +16,8 @@ export const Login = () => {
         loginUser(user)
     }
     return (
-        <main className="main-section d-flex">
-            <form className="form-container border-radius-xs padding-sm" onSubmit={loginHandler}>
+        <main className="loginpage">
+            <form className="loginform-container border-radius-xs padding-sm" onSubmit={loginHandler}>
                 <h2 className="head-lg text-center">Login</h2>
                 <label id="email_address" className="form-label text-sm">Email Address: </label>
                 <input

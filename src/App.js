@@ -1,7 +1,7 @@
-import { Navigation , PrivateRoute} from './components/index'
+import { Navigation , PrivateRoute} from './components'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
-import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 } from "./pages/index"
+import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 } from "./pages"
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthRoute } from './components/AuthRoute';
 
