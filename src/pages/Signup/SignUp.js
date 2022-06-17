@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useAuth } from "../../Context"
 import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
-import "./signup.css"
 
 export const SignUp = () => {
     const [isVisible, setIsVisible] = useState(false)
