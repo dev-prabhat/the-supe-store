@@ -4,19 +4,8 @@ import { useAxios } from "../customHooks/useAxios"
 const ProductContext = createContext()
 
 const ProductProvider = ({ children }) => {
-     const [productsFromBackend, setProductsFromBackend] = useState([])
-     const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
-     const { response: responseFromProduct, loading: loadingFromProduct, operation: getProducts } = useAxios()
-     const { response: responseFromCategory, operation: getCategories } = useAxios()
-
-    useEffect(() => {
-        getProducts({ method: "get", url: "/api/products" })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    useEffect(() => {
-        responseFromProduct !== undefined && setProductsFromBackend(responseFromProduct.products)
-    }, [responseFromProduct])
+    const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
+    const { response: responseFromCategory, operation: getCategories } = useAxios()
 
     useEffect(() => {
         getCategories({ method: "get", url: "/api/categories" })
@@ -28,7 +17,7 @@ const ProductProvider = ({ children }) => {
     }, [responseFromCategory])
 
     return (
-        <ProductContext.Provider value={{ productsFromBackend,loadingFromProduct,categoriesFromBackend }}>
+        <ProductContext.Provider value={{ categoriesFromBackend }}>
             {children}
         </ProductContext.Provider>
     )

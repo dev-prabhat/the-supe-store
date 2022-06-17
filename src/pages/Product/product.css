@@ -17,7 +17,7 @@
 .side-bar {
   grid-area: side-bar;
   background-color: var(--secondary-theme-color);
-  width: 18%;
+  width: 15rem;
   position: fixed;
   min-height: 100vh;
   top: 10%;
@@ -26,19 +26,16 @@
 .productpage-content {
   grid-area: content;
   background-color: var(--dark-theme-shade-80);
-  margin: 7vh 0 0 18%; 
+  margin: 5rem 0 5rem 15rem; 
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .vertical-card-container {
   box-shadow: 0px 0px 10px 0px var(--dark-theme-shade-20);
 }
-
-/* .margin-lf {
-  margin-left: auto;
-} */
 
 .rating-info {
   position: absolute;
@@ -58,4 +55,21 @@
 
 .star-info {
   color: var(--rating-color);
+}
+
+.pagination-wrapper{
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pagination-nav-pills{
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--dark-theme-color);
+  cursor: pointer;
+}
+
+.pagination-nav-pills:hover{
+  box-shadow: 0px 0px 5px 5px var(--dark-theme-color);
 }
