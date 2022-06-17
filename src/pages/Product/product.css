@@ -6,7 +6,7 @@
     "side-bar content content content";
 }
 
-.card-icon {
+.wishlist-icon {
   position: absolute;
   font-size: 2rem;
   top: 10px;
@@ -17,12 +17,18 @@
 .side-bar {
   grid-area: side-bar;
   background-color: var(--secondary-theme-color);
-  width: 15vw;
+  width: 18%;
+  position: fixed;
+  min-height: 100vh;
+  top: 10%;
 }
 
 .productpage-content {
   grid-area: content;
   background-color: var(--dark-theme-shade-80);
+  margin: 7vh 0 0 18%; 
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -30,9 +36,9 @@
   box-shadow: 0px 0px 10px 0px var(--dark-theme-shade-20);
 }
 
-.margin-lf {
+/* .margin-lf {
   margin-left: auto;
-}
+} */
 
 .rating-info {
   position: absolute;

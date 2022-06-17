@@ -37,9 +37,9 @@ const ProductCard = ({ productObj }) => {
                 {
                     isProductInWishList
                         ? <FaHeart
-                            className="card-icon badge-link" />
+                            className="wishlist-icon badge-link" />
                         : <FaRegHeart
-                            className="card-icon badge-link"
+                            className="wishlist-icon badge-link"
                             onClick={() => wishListHandler(productObj)} />
                 }
             </div>

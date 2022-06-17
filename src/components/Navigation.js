@@ -1,8 +1,6 @@
-import React from "react"
 import { NavLink } from "react-router-dom"
-import { useCart } from "../Context/Cart-Context"
-import { useWishlist } from "../Context/Wishlist-Context"
-import { useAuth } from "../Context/Auth-Context"
+import { useCart, useWishlist, useAuth } from "../Context"
+
 
 export default function Navigation() {
     const { cartItems } = useCart()
@@ -11,7 +9,7 @@ export default function Navigation() {
 
     return (
         <nav className="nav-bar d-flex">
-            <NavLink to="/" className="btn-link d-inline_block"><h1 className="head-lg">TheSupeStore</h1></NavLink>
+            <NavLink to="/" className="btn-link d-inline_block"><h1 className="head-lg">SupeStore</h1></NavLink>
             <NavLink to="/products" className="btn-link d-inline_block"><h1 className="head-sm">Products</h1></NavLink>
             <div className="search-container position-rel">
                 <input

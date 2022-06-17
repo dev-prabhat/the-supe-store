@@ -3,11 +3,13 @@
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "nav-bar nav-bar nav-bar nav-bar"
-    "content content  cart cart";
+    "content content cart cart";
 }
 
 .content {
   grid-area: content;
+  width: 50rem;
+  margin: 5rem auto 1rem auto;
 }
 
 .card-container {
@@ -16,6 +18,11 @@
 
 .cart-section {
   grid-area: cart;
+  width: 20rem;
+  margin: 7rem 1rem auto;
+  position: fixed;
+  top: 10%;
+  right: 1%;
 }
 
 .cart-description {
@@ -40,4 +47,11 @@
 
 .text-strike-through {
   text-decoration: line-through;
+}
+
+.empty-cart{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  margin: 5rem 0;
 }

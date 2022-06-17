@@ -1,53 +1,47 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
-import { toast } from "react-toastify"
-import axios from "axios"
+import { useAxios } from "../customHooks/useAxios"
 
 const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(undefined)
-
+    const {response, operation} = useAxios()
 
     useEffect(() => {
         if (localStorage.getItem("token"))
             setToken(localStorage.getItem("token"))
     }, [])
 
+
     const signupUser = async (newUser) => {
-        try {
-            const response = await axios.post("/api/auth/signup", {
-                firstName: newUser.firstName,
-                lastName: newUser.lastName,
-                email: newUser.email,
-                password: newUser.password
-            })
-            localStorage.setItem("token", response.data.encodedToken)
-            setToken(localStorage.getItem("token"))
-        }
-        catch (e) {
-            toast(e.response.data.errors[0])
-        }
+        const {firstName,lastName,email,password} = newUser
+        operation({
+            method:"POST",
+            url:"/api/auth/signup",
+            data:{firstName,lastName,email,password}
+        })
     }
 
     const loginUser = async (user) => {
-        try {
-            const response = await axios.post("/api/auth/login", {
-                email: user.email,
-                password: user.password
-            })
-            localStorage.setItem("token", response.data.encodedToken)
-            setToken(localStorage.getItem("token"))
-            toast("Logged In")
-        }
-        catch (e) {
-            toast.error(e.response.data.errors[0])
-        }
+        operation({
+            method:"POST",
+            url:"/api/auth/login",
+            data:{email:user.email,password:user.password}
+        })
     }
 
     const logoutHandler = () => {
         setToken(undefined)
         localStorage.removeItem("token")
     }
+
+    useEffect(()=>{
+        if(response !== undefined){
+            localStorage.setItem("token",response.encodedToken)
+            setToken(response.encodedToken)
+        }
+    },[response])
+
 
     return (
         <AuthContext.Provider value={{ signupUser, token, logoutHandler, loginUser }}>

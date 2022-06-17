@@ -6,18 +6,6 @@ const WishlistContext = createContext()
 const WishlistProvider = ({ children }) => {
     const {response,operation} = useAxios()
     const [wishlistItems, setWishlistItems] = useState([])
-    // const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, { wishlistItems: [] })
-
-    // function wishlistReducer(state, action) {
-    //     switch (action.type) {
-    //         case "WISHLIST_SUCCESS":
-    //             return {
-    //                 ...state, wishlistItems: [...action.payload]
-    //             }
-    //         default:
-    //             return state
-    //     }
-    // }
 
     const addToWishList = async (product) => {
         const encodedToken = localStorage.getItem("token");
