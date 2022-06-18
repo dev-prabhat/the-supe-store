@@ -1,6 +1,6 @@
 import React from "react"
 import { CartCard } from "../../components"
-import { useCart } from "../../Context/Cart-Context"
+import { useCart } from "../../Context"
 import "./cart.css"
 
 
@@ -26,16 +26,16 @@ const Cart = () => {
     return (
         <>
             {
-                cartItems.length > 0 ? <div className="cartpage-grid-container">
-                    <section className="content padding-md">
+                cartItems.length > 0 ? <main className="cartpage-grid-container">
+                    <section className="content">
                         {
                             cartItems.length > 0 && cartItems.map((productObj) => (
                                 <CartCard key={productObj._id} productObj={productObj} />
                             ))
                         }
                     </section>
-                    <section className="cart-section padding-md">
-                        <div className="cart-description margin-md padding-md">
+                    <section className="cart-section">
+                        <div className="cart-description padding-sm">
                             <h3 className="head-md">Price Details</h3>
                             <div className="d-flex">
                                 <p className="text-sm">Price</p>
@@ -56,10 +56,10 @@ const Cart = () => {
                             <button className="btn btn-primary d-100 text-sm">Place Order</button>
                         </div>
                     </section>
-                </div> :
-                    <section className="padding-md">
+                </main> :
+                    <main className="empty-cart">
                         <h1 className="text-center head-xl">Your Cart  is Empty</h1>
-                    </section>
+                    </main>
             }
         </>
     )

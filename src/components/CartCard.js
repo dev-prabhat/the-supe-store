@@ -1,8 +1,5 @@
-import React from "react"
 import { toast } from "react-toastify"
-
-import { useCart } from "../Context/Cart-Context"
-import { useWishlist } from "../Context/Wishlist-Context"
+import { useCart, useWishlist } from "../Context"
 
 const CartCard = ({ productObj }) => {
     const { _id, name, image, qty, price } = productObj

@@ -1,26 +1,23 @@
 import React from 'react'
-import { useProducts } from "../../Context/Product-Context"
+import { useProducts } from "../../Context"
 import { CategoryCard } from "../../components/index"
-import "./style.css"
-import '../common.css'
-
 import landing_page from '../../assests/images/marvel-tee-1.jpg';
-
-
+import "./home.css"
+import '../common.css'
 
 const Home = () => {
     const {categoriesFromBackend} = useProducts()
     return (
-        <main className="main-section">
-            <section className="banner-image-container">
+        <main className="home-main">
+            <figure className="banner-image-container">
                 <img
                     className="img-responsive"
                     src={landing_page}
                     alt="landing_page"
                 />
-            </section>
+            </figure>
             <p className='text-lg text-center'>Category</p>
-            <section className="container d-flex">
+            <section className="category-container">
                 {
                     categoriesFromBackend.map((category) => (
                         <CategoryCard key={category.id} category={category} />

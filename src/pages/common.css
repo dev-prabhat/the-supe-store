@@ -15,6 +15,10 @@ body {
   padding: 0rem 1rem;
   border-bottom: 1px solid var(--dark-theme-shade-20);
   background-color: var(--secondary-theme-color);
+  width: 100%;
+  position: fixed;
+  top:0%;
+  z-index: 22;
 }
 
 .search-container {

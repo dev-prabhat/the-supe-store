@@ -1,4 +1,4 @@
-.grid-container {
+.wishlistpage-container {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-areas:
@@ -6,26 +6,13 @@
     "content content content";
 }
 
-.nav-bar {
-  grid-area: nav-bar;
-  padding: 0rem 1rem;
-  border-bottom: 1px solid var(--dark-theme-shade-20);
-  background-color: var(--secondary-theme-color);
-}
-
-.search-container {
-  width: 40%;
-  margin: 0 auto;
-}
-
-.search-icon {
-  left: 2%;
-  transform: translate(20%, -50%);
-}
-
-.content {
+.wishlist-content {
   grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  margin: 3rem 0;
 }
 
 .vertical-card-container {
@@ -38,4 +25,11 @@
   top: 10px;
   right: 10px;
   color: var(--primary-theme-light-color);
+}
+
+.empty-wishlist{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  margin: 5rem 0;
 }

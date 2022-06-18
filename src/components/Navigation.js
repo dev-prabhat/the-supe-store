@@ -1,8 +1,6 @@
-import React from "react"
 import { NavLink } from "react-router-dom"
-import { useCart } from "../Context/Cart-Context"
-import { useWishlist } from "../Context/Wishlist-Context"
-import { useAuth } from "../Context/Auth-Context"
+import { useCart, useWishlist, useAuth } from "../Context"
+
 
 export default function Navigation() {
     const { cartItems } = useCart()
@@ -11,7 +9,7 @@ export default function Navigation() {
 
     return (
         <nav className="nav-bar d-flex">
-            <NavLink to="/" className="btn-link d-inline_block"><h1 className="head-lg">TheSupeStore</h1></NavLink>
+            <NavLink to="/" className="btn-link d-inline_block"><h1 className="head-lg">SupeStore</h1></NavLink>
             <NavLink to="/products" className="btn-link d-inline_block"><h1 className="head-sm">Products</h1></NavLink>
             <div className="search-container position-rel">
                 <input
@@ -21,8 +19,7 @@ export default function Navigation() {
                 />
                 <i className="fas fa-search position-abs top-50 search-icon"></i>
             </div>
-            {
-                token && <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
+            <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
                         wishlistItems.length > 0 && <span
@@ -31,19 +28,15 @@ export default function Navigation() {
                         </span>
                     }
 
-                </NavLink>
-            }
+            </NavLink>
 
-            {
-                token && <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
+            <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
                         cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
-                </NavLink>
-            }
-
+            </NavLink>
             {
                 token ? <button className="btn btn-primary margin-xs" onClick={logoutHandler}>Logout</button> : (
                     <>
@@ -53,7 +46,6 @@ export default function Navigation() {
                 )
             }
 
-            <NavLink to="/mock"/>
         </nav>
     )
 }

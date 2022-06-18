@@ -1,8 +1,5 @@
-import React from "react"
 import { Link } from "react-router-dom"
-import { useCart } from "../Context/Cart-Context";
-import { useWishlist } from "../Context/Wishlist-Context"
-import { useAuth } from "../Context/Auth-Context"
+import { useCart,useWishlist,useAuth } from "../Context";
 import { GiCancel } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 

@@ -1,6 +1,5 @@
-import React from "react"
 import {useNavigate} from "react-router-dom"
-import { useFilter } from "../Context/Filter-Context"
+import { useFilter } from "../Context"
 
 const CategoryCard = ({ category }) => {
     const {filterDispatch} = useFilter()

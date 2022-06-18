@@ -1,15 +1,16 @@
-import React, { createContext, useContext, useReducer } from "react"
-import { useProducts } from "./Product-Context"
+import React, { createContext, useContext, useReducer , useEffect} from "react"
+import { useAxios } from "../customHooks/useAxios"
 
 const FilterContext = createContext()
 
 const FilterProvider = ({ children }) => {
-    const { productsFromBackend } = useProducts()
+    const {response:responseFromProduct,loading: loadingFromProducts ,operation:getProducts} = useAxios()
     const [filterState, filterDispatch] = useReducer(filterReducer, {
         byPrice: "",
         byCategoryNames: [],
         byRating: "",
-        price: 2500
+        price: 2500,
+        products:[]
     })
     function filterReducer(state, action) {
         switch (action.type) {
@@ -39,6 +40,10 @@ const FilterProvider = ({ children }) => {
                 return {
                     ...state, price: action.payload
                 }
+            case "MADE_API_CALL":
+                return{
+                    ...state, products: action.payload
+                }
             case "CLEAR":
                 return {
                     byPrice: "",
@@ -51,9 +56,20 @@ const FilterProvider = ({ children }) => {
         }
     }
 
+    useEffect(()=>{
+       getProducts({ method: "get", url: "/api/products"})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+    useEffect(()=>{
+        if(responseFromProduct !== undefined){
+          filterDispatch({type:"MADE_API_CALL",payload:responseFromProduct.products})
+        }
+    },[responseFromProduct])
+
     const filteredProduct = () => {
-        const { byPrice, byCategoryNames, byRating, price } = filterState
-        let savedProduct = [...productsFromBackend]
+        const { byPrice, byCategoryNames, byRating, price ,products} = filterState
+        let savedProduct = [...products]
 
         if (byPrice) {
             savedProduct = savedProduct.sort((a, b) => {
@@ -77,7 +93,7 @@ const FilterProvider = ({ children }) => {
     }
 
     return (
-        <FilterContext.Provider value={{ filterState, filteredProduct, filterDispatch }}>
+        <FilterContext.Provider value={{ filterState, loadingFromProducts, filteredProduct, filterDispatch }}>
             {children}
         </FilterContext.Provider>
     )
