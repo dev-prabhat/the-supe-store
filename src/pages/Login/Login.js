@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import { useAuth } from "../../Context"
-import { Link } from "react-router-dom"
+import { Link , useLocation} from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
 import "./login.css"
 
 export const Login = () => {
+    const location = useLocation()
+    console.log(location)
     const [isVisible, setIsVisible] = useState(false)
     const [ user , setUser] = useState({email:"",password:""})
     const { loginUser } = useAuth()
@@ -53,7 +55,7 @@ export const Login = () => {
                         <input id="remember" type="checkbox" />
                         <label htmlFor="remember" className="padding-xs">Remember me</label>
                     </div>
-                    <p className="highlight" onClick={()=>setUser({email:"adarshbalka@gmail.com",password:"adarshbalka"})}>Test Credentials</p>
+                    <p className="highlight" onClick={()=>setUser({email:"singhprabhat007@gmail.com",password:"prabhat007"})}>Test Credentials</p>
                 </div>
 
                 <button className="btn btn-primary d-100 head-sm">

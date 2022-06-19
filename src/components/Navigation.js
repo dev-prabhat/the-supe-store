@@ -5,7 +5,7 @@ import { useCart, useWishlist, useAuth } from "../Context"
 export default function Navigation() {
     const { cartItems } = useCart()
     const { wishlistItems } = useWishlist()
-    const { token, logoutHandler } = useAuth()
+    const { token } = useAuth()
 
     return (
         <nav className="nav-bar d-flex">
@@ -38,14 +38,18 @@ export default function Navigation() {
                     }
             </NavLink>
             {
-                token ? <button className="btn btn-primary margin-xs" onClick={logoutHandler}>Logout</button> : (
-                    <>
-                        <NavLink to="/signup" className="btn btn-primary btn-link margin-xs d-inline_block">SignUp</NavLink>
-                        <NavLink to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</NavLink>
-                    </>
-                )
+                token ? 
+                <NavLink to="/profile" className="margin-xs">
+                    <div class="avatar avatar-xs">
+                        <img
+                        class="img-responsive img-round"
+                        src={process.env.PUBLIC_URL + "/svg/avatarIcon.svg"}
+                        alt="avatar"
+                        />
+                    </div>
+                </NavLink> :
+                <NavLink to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</NavLink> 
             }
-
         </nav>
     )
 }

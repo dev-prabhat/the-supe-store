@@ -5,11 +5,12 @@ const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(undefined)
+    const [loggedUser, setLoggedUser] = useState(null)
     const {response, operation} = useAxios()
 
     useEffect(() => {
-        if (localStorage.getItem("token"))
-            setToken(localStorage.getItem("token"))
+        if (localStorage.getItem("token")) setToken(localStorage.getItem("token"))
+        if (localStorage.getItem("loggedUser")) setLoggedUser(JSON.parse(localStorage.getItem("loggedUser")))
     }, [])
 
 
@@ -32,19 +33,22 @@ const AuthProvider = ({ children }) => {
 
     const logoutHandler = () => {
         setToken(undefined)
-        localStorage.removeItem("token")
+        setLoggedUser(null)
+        localStorage.clear()
     }
 
     useEffect(()=>{
         if(response !== undefined){
             localStorage.setItem("token",response.encodedToken)
+            localStorage.setItem("loggedUser",JSON.stringify(response.foundUser))
+            setLoggedUser(response.foundUser)
             setToken(response.encodedToken)
         }
     },[response])
 
 
     return (
-        <AuthContext.Provider value={{ signupUser, token, logoutHandler, loginUser }}>
+        <AuthContext.Provider value={{ signupUser, token, logoutHandler, loggedUser, loginUser }}>
             {children}
         </AuthContext.Provider>
     )

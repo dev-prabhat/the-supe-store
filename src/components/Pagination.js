@@ -5,7 +5,6 @@ export const Pagination = ({productsPerPage, totalProducts, setCurrentPage }) =>
 
   for (let i = 1; i <= Math.ceil(totalProducts/productsPerPage); i++) {
     pageNumbers.push(i)
-    console.log(pageNumbers)
   }
 
   return (

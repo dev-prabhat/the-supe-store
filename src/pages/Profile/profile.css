@@ -1,0 +1,15 @@
+.profile-page{
+    position: relative;
+}
+
+.profile-container{
+    width: 30%;
+    margin: 10rem auto;
+    background-color: var(--primary-theme-shade-20);
+}
+
+.logout-btn{
+    position: fixed;
+    top: 15%;
+    right: 5%;
+}

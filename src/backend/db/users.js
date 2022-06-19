@@ -17,12 +17,12 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: uuid(),
-    firstName: "Adarsh",
-    lastName: "Balka",
-    email: "adarshbalka@gmail.com",
-    password: "adarshbalka",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
-  },
+    _id:uuid(),
+    firstName:"Prabhat",
+    lastName:"Singh",
+    email:"singhprabhat007@gmail.com",
+    password:"prabhat007",
+    createdAt:formatDate(),
+    updatedAt:formatDate()
+  }
 ];
