@@ -4,7 +4,7 @@ import {useAxios} from "../customHooks/useAxios"
 const WishlistContext = createContext()
 
 const WishlistProvider = ({ children }) => {
-    const {response,operation} = useAxios()
+    const {response,loading:wishListLoader, operation} = useAxios()
     const [wishlistItems, setWishlistItems] = useState([])
 
     const addToWishList = async (product) => {
@@ -31,7 +31,7 @@ const WishlistProvider = ({ children }) => {
       },[response])
 
     return (
-        <WishlistContext.Provider value={{ wishlistItems, addToWishList, deleteFromWishList }}>
+        <WishlistContext.Provider value={{ wishlistItems, addToWishList, deleteFromWishList,wishListLoader }}>
             {children}
         </WishlistContext.Provider>
     )

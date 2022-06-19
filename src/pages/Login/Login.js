@@ -1,12 +1,10 @@
 import React, { useState } from "react"
 import { useAuth } from "../../Context"
-import { Link , useLocation} from "react-router-dom"
+import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
 import "./login.css"
 
 export const Login = () => {
-    const location = useLocation()
-    console.log(location)
     const [isVisible, setIsVisible] = useState(false)
     const [ user , setUser] = useState({email:"",password:""})
     const { loginUser } = useAuth()

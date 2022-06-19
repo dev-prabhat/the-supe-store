@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom"
 import App from './App';
-import { CartProvider, FilterProvider, WishlistProvider, ProductProvider, AuthProvider} from "./Context"
+import { CartProvider, FilterProvider, WishlistProvider, CategoryProvider, AuthProvider} from "./Context"
 import { makeServer } from "./server"
 
 
@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <ProductProvider>
+        <CategoryProvider>
           <FilterProvider>
             <CartProvider>
               <WishlistProvider>
@@ -19,7 +19,7 @@ ReactDOM.render(
               </WishlistProvider>
             </CartProvider>
           </FilterProvider>
-        </ProductProvider>
+        </CategoryProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -4,7 +4,7 @@ import {useAxios} from "../customHooks/useAxios"
 const CartContext = createContext()
 
 const CartProvider = ({ children }) => {
-    const {response,operation} = useAxios()
+    const {response,loading:cartLoader,operation} = useAxios()
     const [cartItems, setCartItems] = useState([])
 
     const addToCart =  async (product) => {
@@ -52,7 +52,7 @@ const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartItems,  addToCart, deleteFromCart, increaseQty, decreaseQty }}>
+        <CartContext.Provider value={{ cartItems,  addToCart, deleteFromCart, increaseQty, decreaseQty,cartLoader }}>
             {children}
         </CartContext.Provider>
     )

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link , useNavigate, useLocation} from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
 import { useAuth } from "../Context/Auth-Context"
@@ -8,8 +8,6 @@ import { FaHeart, FaShoppingCart, FaStar, FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ productObj }) => {
     const navigate = useNavigate()
-    const location = useLocation()
-    console.log(location)
     const { name, image, price, star, tag } = productObj
     const {  cartItems , addToCart } = useCart()
     const { token } = useAuth()

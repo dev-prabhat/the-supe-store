@@ -6,7 +6,7 @@ const AuthContext = createContext()
 const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(undefined)
     const [loggedUser, setLoggedUser] = useState(null)
-    const {response, operation} = useAxios()
+    const {response,loading:authLoader, operation} = useAxios()
 
     useEffect(() => {
         if (localStorage.getItem("token")) setToken(localStorage.getItem("token"))
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ signupUser, token, logoutHandler, loggedUser, loginUser }}>
+        <AuthContext.Provider value={{ signupUser, token, logoutHandler, loggedUser, loginUser,authLoader }}>
             {children}
         </AuthContext.Provider>
     )

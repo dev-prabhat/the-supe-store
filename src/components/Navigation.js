@@ -22,7 +22,7 @@ export default function Navigation() {
             <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
-                        wishlistItems.length > 0 && <span
+                        token && wishlistItems.length > 0 && <span
                             className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">
                             {wishlistItems.length}
                         </span>
@@ -33,7 +33,7 @@ export default function Navigation() {
             <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
-                        cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
+                        token && cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
             </NavLink>

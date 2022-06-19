@@ -19,6 +19,7 @@ body {
   position: fixed;
   top:0%;
   z-index: 22;
+ 
 }
 
 .search-container {
@@ -36,4 +37,17 @@ body {
 .search-icon {
   font-size: 1.2rem;
   color: var(--dark-theme-color);
+}
+
+.loader-wrapper{
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 23;
+  background-color: var(--modal-bg-color);
 }

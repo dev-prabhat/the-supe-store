@@ -1,12 +1,12 @@
 import React from 'react'
-import { useProducts } from "../../Context"
+import { useCategories } from "../../Context"
 import { CategoryCard } from "../../components/index"
 import landing_page from '../../assests/images/marvel-tee-1.jpg';
 import "./home.css"
 import '../common.css'
 
 const Home = () => {
-    const {categoriesFromBackend} = useProducts()
+    const {categoriesFromBackend} = useCategories()
     return (
         <main className="home-main">
             <figure className="banner-image-container">
