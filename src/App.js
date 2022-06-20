@@ -1,7 +1,7 @@
-import { Navigation , PrivateRoute} from './components'
+import { Loader, Navigation , PrivateRoute} from './components'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
-import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 } from "./pages"
+import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 , Profile} from "./pages"
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthRoute } from './components/AuthRoute';
 
@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <Loader/>
       <ToastContainer position="bottom-right"
         autoClose={1000}
         hideProgressBar={false}
@@ -27,6 +28,7 @@ function App() {
          <Route element={<PrivateRoute/>}>
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/profile" element={<Profile/>}/>
          </Route>
         
          <Route element={<AuthRoute/>}>

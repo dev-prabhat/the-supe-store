@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect, useContext } from "react"
 import { useAxios } from "../customHooks/useAxios"
 
-const ProductContext = createContext()
+const CategoryContext = createContext()
 
-const ProductProvider = ({ children }) => {
+const CategoryProvider = ({ children }) => {
     const [categoriesFromBackend, setCategoriesFromBackend] = useState([])
-    const { response: responseFromCategory, operation: getCategories } = useAxios()
+    const { response: responseFromCategory,loading:categoryLoader, operation: getCategories } = useAxios()
 
     useEffect(() => {
         getCategories({ method: "get", url: "/api/categories" })
@@ -17,12 +17,12 @@ const ProductProvider = ({ children }) => {
     }, [responseFromCategory])
 
     return (
-        <ProductContext.Provider value={{ categoriesFromBackend }}>
+        <CategoryContext.Provider value={{ categoriesFromBackend,categoryLoader }}>
             {children}
-        </ProductContext.Provider>
+        </CategoryContext.Provider>
     )
 }
 
-const useProducts = () => useContext(ProductContext)
+const useCategories = () => useContext(CategoryContext)
 
-export { ProductProvider, useProducts }
+export { CategoryProvider, useCategories }

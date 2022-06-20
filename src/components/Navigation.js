@@ -5,7 +5,7 @@ import { useCart, useWishlist, useAuth } from "../Context"
 export default function Navigation() {
     const { cartItems } = useCart()
     const { wishlistItems } = useWishlist()
-    const { token, logoutHandler } = useAuth()
+    const { token } = useAuth()
 
     return (
         <nav className="nav-bar d-flex">
@@ -22,7 +22,7 @@ export default function Navigation() {
             <NavLink className="badge-container d-inline_block margin-sm" to="/wishlist">
                     <i className="far fa-heart badge-link nav-wishlist-icon"></i>
                     {
-                        wishlistItems.length > 0 && <span
+                        token && wishlistItems.length > 0 && <span
                             className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">
                             {wishlistItems.length}
                         </span>
@@ -33,19 +33,23 @@ export default function Navigation() {
             <NavLink to="/cart" className="badge-container d-inline_block margin-sm">
                     <i className="fas fa-shopping-cart badge-link nav-cart-icon"></i>
                     {
-                        cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
+                        token && cartItems.length > 0 && <span className="badge-icon top-0 left-100 position-abs translate-topright badge-status-offline border-radius-xl">{cartItems.length}
                         </span>
                     }
             </NavLink>
             {
-                token ? <button className="btn btn-primary margin-xs" onClick={logoutHandler}>Logout</button> : (
-                    <>
-                        <NavLink to="/signup" className="btn btn-primary btn-link margin-xs d-inline_block">SignUp</NavLink>
-                        <NavLink to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</NavLink>
-                    </>
-                )
+                token ? 
+                <NavLink to="/profile" className="margin-xs">
+                    <div class="avatar avatar-xs">
+                        <img
+                        class="img-responsive img-round"
+                        src={process.env.PUBLIC_URL + "/svg/avatarIcon.svg"}
+                        alt="avatar"
+                        />
+                    </div>
+                </NavLink> :
+                <NavLink to="/login" className="btn btn-secondary btn-link margin-xs d-inline_block">Login</NavLink> 
             }
-
         </nav>
     )
 }

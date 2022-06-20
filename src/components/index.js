@@ -6,5 +6,6 @@ import CartCard from "./CartCard"
 import WishlistCard from "./WishlistCard"
 import { PrivateRoute } from "./PrivateRoute"
 import { Pagination } from "./Pagination"
+import { Loader } from "./Loader"
 
-export { CategoryCard, Navigation, ProductCard, Sidebar, CartCard, WishlistCard , PrivateRoute, Pagination}
+export { CategoryCard, Navigation, ProductCard, Sidebar, CartCard, WishlistCard , PrivateRoute, Pagination, Loader}

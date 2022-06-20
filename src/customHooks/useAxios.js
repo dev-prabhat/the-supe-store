@@ -6,10 +6,11 @@ axios.defaults.baseURL = "";
 export const useAxios = () => {
     const [response, setResponse] = useState(undefined)
     const [error, setError] = useState("")
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(undefined)
 
     const operation = async (param) => {
         try {
+            setLoading(true)
             const result = await axios.request(param)
             setResponse(result.data)
         }

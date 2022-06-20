@@ -1,6 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
-import { toast } from "react-toastify"
+import { Link , useNavigate} from "react-router-dom"
 import { useCart } from "../Context/Cart-Context"
 import { useWishlist } from "../Context/Wishlist-Context"
 import { useAuth } from "../Context/Auth-Context"
@@ -8,6 +7,7 @@ import { FaHeart, FaShoppingCart, FaStar, FaRegHeart } from "react-icons/fa";
 
 
 const ProductCard = ({ productObj }) => {
+    const navigate = useNavigate()
     const { name, image, price, star, tag } = productObj
     const {  cartItems , addToCart } = useCart()
     const { token } = useAuth()
@@ -18,12 +18,12 @@ const ProductCard = ({ productObj }) => {
 
     const cartHandler = (productObj) => {
         if (token) addToCart(productObj)
-        else toast("Please Login")
+        else navigate("/login",{replace:true})
     }
 
     const wishListHandler = (productObj) => {
         if (token) addToWishList(productObj)
-        else toast("Please Login")
+        else navigate("/login",{replace:true})
     }
 
     return (
