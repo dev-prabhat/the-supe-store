@@ -1,0 +1,38 @@
+.address-page{
+    display: grid;
+    grid-template-areas: "aside-nav content content content content content";
+    margin: 6rem 4rem 0;
+}
+
+.aside-nav{
+  grid-area: aside-nav;
+  width: 100%;
+}
+
+.address-wrapper{
+    background-color: var(--secondary-theme-color);
+    grid-area: content;
+}
+
+.address-div{
+    border: 1px solid var(--dark-theme-color);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-address-icon {
+    font-size: 1.5rem;
+}
+
+.form-btn{
+    margin: 0.5rem 0;
+}
+
+.address-card{
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    border: 1px solid var(--dark-theme-color);
+}

@@ -1,4 +1,5 @@
 import { useAuth } from "../../Context"
+import { ProfileNav } from "../../components"
 import "./profile.css"
 
 export const Profile = () => {
@@ -6,11 +7,12 @@ export const Profile = () => {
    
     return(
        <main className="profile-page">
-           <button className="btn btn-secondary head-sm logout-btn" onClick={logoutHandler}>Logout</button>
-           <div className="profile-container padding-md">
-              <h1 className="head-sm margin-xs">FirstName: {`${firstName}`}</h1>
-              <h2 className="head-sm margin-xs">LastName: {`${lastName}`}</h2>
+        <ProfileNav/>
+           
+           <div className="profile-details margin-xs padding-xs">
+              <h1 className="head-sm margin-xs">Name: {`${firstName} ${lastName}`}</h1>
               <h3 className="head-sm margin-xs">Email: {`${email}`} </h3>
+              <button className="btn btn-secondary head-sm margin-xs" onClick={logoutHandler}>Logout</button>
            </div>
        </main>
     )

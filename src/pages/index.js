@@ -7,5 +7,6 @@ import { SignUp } from "./Signup/SignUp"
 import { Login } from "./Login/Login"
 import {Page404} from './Page404/Page404'
 import { Profile } from "./Profile/Profile"
+import { Address } from "./Address/Address"
 
-export { Home, Product, Cart, Wishlist, Mock, SignUp, Login,Page404 , Profile}
+export { Home, Product, Cart, Wishlist, Mock, SignUp, Login,Page404 , Profile ,Address}

@@ -1,15 +1,26 @@
 .profile-page{
-    position: relative;
+    display: grid;
+    grid-template-areas: "aside-nav content content content content content";
+    margin: 6rem 4rem 0;
 }
 
-.profile-container{
-    width: 30%;
-    margin: 10rem auto;
+.aside-nav{
+  grid-area: aside-nav;
+}
+
+.profile-details{
     background-color: var(--primary-theme-shade-20);
+    grid-area: content;
+    height: 10rem;
 }
 
-.logout-btn{
-    position: fixed;
-    top: 15%;
-    right: 5%;
+.profile{
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-theme-color);
+}
+
+.profilenav-wrapper{
+    padding: 0.5rem 0;
+    background-color: var(--secondary-theme-color);
 }
