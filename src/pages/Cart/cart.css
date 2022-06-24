@@ -4,25 +4,24 @@
   grid-template-areas:
     "nav-bar nav-bar nav-bar nav-bar"
     "content content cart cart";
+  padding: 0 1rem;
 }
 
 .content {
   grid-area: content;
-  width: 50rem;
-  margin: 5rem auto 1rem auto;
+  width: 30rem;
+  margin: 5rem auto 1rem;
 }
 
 .card-container {
   box-shadow: 0px 0px 10px 0px var(--dark-theme-shade-20);
+  display: flex;
+  align-items: center;
 }
 
 .cart-section {
   grid-area: cart;
-  width: 20rem;
   margin: 7rem 1rem auto;
-  position: fixed;
-  top: 10%;
-  right: 1%;
 }
 
 .cart-description {

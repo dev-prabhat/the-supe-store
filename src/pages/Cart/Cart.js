@@ -28,6 +28,9 @@ const Cart = () => {
             {
                 cartItems.length > 0 ? <main className="cartpage-grid-container">
                     <section className="content">
+                        <div>
+                            <h1>MyCart(1)</h1>
+                        </div>
                         {
                             cartItems.length > 0 && cartItems.map((productObj) => (
                                 <CartCard key={productObj._id} productObj={productObj} />

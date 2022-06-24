@@ -1,4 +1,4 @@
-import { Loader, Navigation , PrivateRoute} from './components'
+import { Loader, Navbar , PrivateRoute} from './components'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 , Profile , Address} from "./pages"
@@ -10,7 +10,7 @@ import { AuthRoute } from './components/AuthRoute';
 function App() {
   return (
     <>
-      <Navigation />
+      <Navbar />
       <Loader/>
       <ToastContainer position="bottom-right"
         autoClose={1000}

@@ -17,7 +17,7 @@ const CartCard = ({ productObj }) => {
     }
 
     return (
-        <div className="card-container d-flex margin-md">
+        <div className="card-container margin-md">
             <div className="width-2xl height-xl padding-xs">
                 <img
                     className="img-responsive"

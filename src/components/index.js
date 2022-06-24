@@ -1,5 +1,5 @@
-import CategoryCard from "./CategoryCard"
-import Navigation from "./Navigation"
+import CategoryCard from "./CategoryCard/CategoryCard"
+import Navbar from "./Navbar/Navbar"
 import ProductCard from "./ProductCard"
 import Sidebar from "./Sidebar"
 import CartCard from "./CartCard"
@@ -15,7 +15,7 @@ import { EditAddressModal } from "./EditAddressModal"
 
 export { 
     CategoryCard,
-    Navigation, 
+    Navbar, 
     ProductCard, 
     Sidebar, 
     CartCard, 
