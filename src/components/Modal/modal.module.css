@@ -1,4 +1,4 @@
-.modal-wrapper{
+.modal__wrapper{
     position: fixed;
     top: 0%;
     bottom: 0%;
@@ -11,7 +11,7 @@
     z-index: 22;
 }
 
-.modal-content{
+.modal__content{
     width: 40%;
     background-color: var(--secondary-theme-color);
     padding: 0.5rem 1rem;

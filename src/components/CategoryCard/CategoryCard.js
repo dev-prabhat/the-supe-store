@@ -1,5 +1,6 @@
 import {useNavigate} from "react-router-dom"
-import { useFilter } from "../Context"
+import { useFilter } from "../../Context"
+import CategoryCSS from "./categoryCard.module.css"
 
 const CategoryCard = ({ category }) => {
     const {filterDispatch} = useFilter()
@@ -7,7 +8,7 @@ const CategoryCard = ({ category }) => {
 
 
     return(
-        <div className="card-img position-rel margin-xs" 
+        <div className={CategoryCSS.card__image} 
           onClick={()=>{
             filterDispatch({ type: "FILTER_FROM_HOMEPAGE", payload: category.categoryName })
             navigate("/products")
