@@ -2,16 +2,16 @@ import { Link , useNavigate} from "react-router-dom"
 import { useCart } from "../../Context/Cart-Context"
 import { useWishlist } from "../../Context/Wishlist-Context"
 import { useAuth } from "../../Context/Auth-Context"
-import { MdShoppingCart,MdFavoriteBorder ,MdFavorite, MdStar} from "react-icons/md";
+import { MdShoppingCart,MdFavoriteBorder ,MdFavorite, MdStar , MdOutlineCancel} from "react-icons/md";
 import ProductCardCSS from "./productCard.module.css"
 
 
-const ProductCard = ({ productObj }) => {
+const ProductCard = ({ productObj , isWishlist = false }) => {
     const navigate = useNavigate()
-    const { name, image, price, star, tag } = productObj
+    const { name, image, price, star, tag, _id } = productObj
     const {  cartItems , addToCart } = useCart()
     const { token } = useAuth()
-    const { addToWishList, wishlistItems  } = useWishlist()
+    const { addToWishList, wishlistItems , deleteFromWishList } = useWishlist()
 
     const isProductInWishList = wishlistItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
     const isProductInCart = cartItems.findIndex(p => p._id === productObj._id) === -1 ? false : true
@@ -35,18 +35,26 @@ const ProductCard = ({ productObj }) => {
                     alt="black_cap"
                 />
                 {
-                    isProductInWishList
-                        ? <MdFavorite 
-                            className={ProductCardCSS.wishlist__icon} />
-                        : <MdFavoriteBorder
-                            className={ProductCardCSS.wishlist__icon}
-                            onClick={() => wishListHandler(productObj)} />
+                    isWishlist ? 
+                        <MdOutlineCancel 
+                            className={ProductCardCSS.wishlist__icon} 
+                            onClick={() => deleteFromWishList(_id)} /> : 
+                    <>
+                       {
+                            isProductInWishList
+                                ? <MdFavorite 
+                                    className={ProductCardCSS.wishlist__icon} 
+                                    onClick={() => deleteFromWishList(_id)}/>
+                                : <MdFavoriteBorder
+                                    className={ProductCardCSS.wishlist__icon}
+                                    onClick={() => wishListHandler(productObj)} />
+                        }
+                    </>
                 }
                 <span className={ProductCardCSS.rating__info}>
                     {star} <MdStar className={ProductCardCSS.star} />
                 </span>
                 {tag && <span className={ProductCardCSS.trending__info}>{tag}</span>}
-                {/* {tag && <span className="trending-info padding-xxs font-weight-semibold">{tag}</span>} */}
             </div>
            
             <div className="card-description">

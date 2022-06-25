@@ -1,0 +1,23 @@
+.grid__container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "nav-bar nav-bar nav-bar"
+    "content content content";
+}
+
+.products__container{
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.empty__wishlist__grid{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  margin: 1rem 0;
+}

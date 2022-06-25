@@ -1,7 +1,6 @@
-import React from "react"
 import { useWishlist } from "../../Context"
-import { WishlistCard } from "../../components"
-import "./wishlist.css"
+import { ProductCard} from "../../components"
+import WishlistCSS  from "./wishlist.module.css"
 
 const Wishlist = () => {
     const { wishlistItems } = useWishlist()
@@ -9,19 +8,19 @@ const Wishlist = () => {
         <>
            {  
              wishlistItems.length > 0 ? 
-                <main className="wishlistpage-container">
+                <main className={WishlistCSS.grid__container}>
                 {
                     wishlistItems.length > 0 &&
-                        <section className="wishlist-content padding-sm">
+                        <section className={WishlistCSS.products__container}>
                             {
                                 wishlistItems.map(productObj => (
-                                    <WishlistCard key={productObj._id} productObj={productObj} />
+                                    <ProductCard key={productObj._id} productObj={productObj} isWishlist={true}/>
                                 ))
                             }
                         </section> 
                 }
                </main>:
-            <main className="empty-wishlist">
+            <main className={WishlistCSS.empty__wishlist__grid}>
                 <h1 className="text-center head-xl">Your Wishlist is Empty</h1>
             </main>
            }  

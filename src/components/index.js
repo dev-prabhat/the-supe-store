@@ -3,7 +3,6 @@ import Navbar from "./Navbar/Navbar"
 import ProductCard from "./ProductCard/ProductCard"
 import Sidebar from "./Sidebar/Sidebar"
 import CartCard from "./CartCard"
-import WishlistCard from "./WishlistCard"
 import { PrivateRoute } from "./PrivateRoute"
 import { Pagination } from "./Pagination/Pagination"
 import { Loader } from "./Loader"
@@ -19,7 +18,6 @@ export {
     ProductCard, 
     Sidebar, 
     CartCard, 
-    WishlistCard , 
     PrivateRoute, 
     Pagination, 
     Loader, 
