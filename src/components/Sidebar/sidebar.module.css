@@ -1,0 +1,8 @@
+.sidebar__container{
+    grid-area: side-bar;
+    background-color: var(--secondary-theme-color);
+    width: 15rem;
+    position: fixed;
+    min-height: 100vh;
+    top: 10%;
+}

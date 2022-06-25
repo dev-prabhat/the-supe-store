@@ -1,7 +1,7 @@
 import {useState} from "react"
 import { ProductCard, Sidebar , Pagination} from "../../components/index"
 import { useFilter } from '../../Context'
-import "./product.css"
+import ProductPageCSS from  "./product.module.css"
 import '../common.css'
 
 const Product = () => {
@@ -16,14 +16,14 @@ const Product = () => {
     const currentPageProducts = totalProducts.slice(indexOfFirstProduct,indexOfLastProduct)
 
     return (
-        <main className="productpage-grid-container">
+        <main className={ProductPageCSS.grid__container }>
             <Sidebar />
             {
                 loadingFromProducts ?
                 <section className="padding-md">
                     <h1 className="text-center head-xl">Loading...</h1>
                 </section> :
-                <section className="productpage-content">
+                <section className={ProductPageCSS.products__container}>
                     {
                         currentPageProducts.map((Obj) => (
                             <ProductCard key={Obj._id} productObj={Obj} />

@@ -1,9 +1,9 @@
-import React from "react"
 import { Link , useNavigate} from "react-router-dom"
-import { useCart } from "../Context/Cart-Context"
-import { useWishlist } from "../Context/Wishlist-Context"
-import { useAuth } from "../Context/Auth-Context"
-import { FaHeart, FaShoppingCart, FaStar, FaRegHeart } from "react-icons/fa";
+import { useCart } from "../../Context/Cart-Context"
+import { useWishlist } from "../../Context/Wishlist-Context"
+import { useAuth } from "../../Context/Auth-Context"
+import { MdShoppingCart,MdFavoriteBorder ,MdFavorite, MdStar} from "react-icons/md";
+import ProductCardCSS from "./productCard.module.css"
 
 
 const ProductCard = ({ productObj }) => {
@@ -27,8 +27,8 @@ const ProductCard = ({ productObj }) => {
     }
 
     return (
-        <div className="card-container vertical-card-container margin-md position-rel">
-            <div className="width-2xl height-2xl">
+        <div className={ProductCardCSS.card__container}>
+            <div className={ProductCardCSS.product__img}>
                 <img
                     className="img-responsive"
                     src={image}
@@ -36,17 +36,19 @@ const ProductCard = ({ productObj }) => {
                 />
                 {
                     isProductInWishList
-                        ? <FaHeart
-                            className="wishlist-icon badge-link" />
-                        : <FaRegHeart
-                            className="wishlist-icon badge-link"
+                        ? <MdFavorite 
+                            className={ProductCardCSS.wishlist__icon} />
+                        : <MdFavoriteBorder
+                            className={ProductCardCSS.wishlist__icon}
                             onClick={() => wishListHandler(productObj)} />
                 }
+                <span className={ProductCardCSS.rating__info}>
+                    {star} <MdStar className={ProductCardCSS.star} />
+                </span>
+                {tag && <span className={ProductCardCSS.trending__info}>{tag}</span>}
+                {/* {tag && <span className="trending-info padding-xxs font-weight-semibold">{tag}</span>} */}
             </div>
-            {
-                tag && <span className="trending-info padding-xxs font-weight-semibold">{tag}</span>
-            }
-            <span className="rating-info padding-xxs font-weight-semibold">{star} <FaStar className="star-info" /></span>
+           
             <div className="card-description">
                 <p className="text-md font-weight-semibold text-center">{name}</p>
                 <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>
@@ -61,7 +63,7 @@ const ProductCard = ({ productObj }) => {
                             type="button"
                             className="btn btn-primary head-sm d-100"
                             onClick={() => cartHandler(productObj)}>
-                            <FaShoppingCart className="cart-icon" />Add to cart
+                            <MdShoppingCart className={ProductCardCSS.cart__icon} />Add to cart
                         </button>
                 }
             </div>
