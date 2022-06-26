@@ -1,24 +1,27 @@
 .loginpage {
   background-color: var(--dark-theme-shade-80);
-  margin: 8rem 0;
+  margin: 5rem 0;
   justify-content: center;
   display: flex;
   align-items: center;
 }
 
-.loginform-container {
-  width: 25%;
+.loginform__container {
+  width: 30%;
   box-shadow: 0px 0px 10px 0px var(--dark-theme-shade-20);
   background-color: var(--secondary-theme-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.option-container{
+.option__container{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 8px;
 }
 
-.show-hide-icon{
+.show__icon,.hide__icon{
   position: absolute;
   bottom: 15%;
   right: 2%;

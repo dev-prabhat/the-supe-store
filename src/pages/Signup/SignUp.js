@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { useAuth } from "../../Context"
 import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
-import "./signup.css"
+import SignupCSS from  "./signup.module.css"
 
 export const SignUp = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -18,8 +18,8 @@ export const SignUp = () => {
         signupUser(newUser)
     }
     return (
-        <main className="signuppage">
-            <form className="signupform-container border-radius-xs padding-sm" onSubmit={signupHandler}>
+        <main className={SignupCSS.signuppage}>
+            <form className={SignupCSS.signupform__container} onSubmit={signupHandler}>
                 <h2 className="head-lg text-center">SignUp</h2>
                 <label className="form-label text-sm">FirstName: </label>
                 <input
@@ -63,8 +63,8 @@ export const SignUp = () => {
                     />
                     {
                         isVisible ? 
-                        <BiHide className="show-hide-icon" onClick={() => setIsVisible(prev => !prev)}/>:
-                        <BiShow className="show-hide-icon" onClick={() => setIsVisible(prev => !prev)}/>
+                        <BiHide className={SignupCSS.hide__icon} onClick={() => setIsVisible(prev => !prev)}/>:
+                        <BiShow className={SignupCSS.show__icon} onClick={() => setIsVisible(prev => !prev)}/>
                     }
                 </div>
 

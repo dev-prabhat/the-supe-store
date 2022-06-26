@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useAuth } from "../../Context"
 import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
-import "./login.css"
+import LoginCSS from  "./login.module.css"
 
 export const Login = () => {
     const [isVisible, setIsVisible] = useState(false)
@@ -16,8 +16,8 @@ export const Login = () => {
         loginUser(user)
     }
     return (
-        <main className="loginpage">
-            <form className="loginform-container border-radius-xs padding-sm" onSubmit={loginHandler}>
+        <main className={LoginCSS.loginpage}>
+            <form className={LoginCSS.loginform__container} onSubmit={loginHandler}>
                 <h2 className="head-lg text-center">Login</h2>
                 <label id="email_address" className="form-label text-sm">Email Address: </label>
                 <input
@@ -43,17 +43,17 @@ export const Login = () => {
                     />
                     {
                         isVisible ? 
-                        <BiHide className="show-hide-icon" onClick={() => setIsVisible(prev => !prev)}/>:
-                        <BiShow className="show-hide-icon" onClick={() => setIsVisible(prev => !prev)}/>
+                        <BiHide className={LoginCSS.hide__icon} onClick={() => setIsVisible(prev => !prev)}/>:
+                        <BiShow className={LoginCSS.show__icon} onClick={() => setIsVisible(prev => !prev)}/>
                     }
                 </div>
 
-                <div className="option-container padding-xs">
+                <div className={LoginCSS.option__container}>
                     <div>
                         <input id="remember" type="checkbox" />
                         <label htmlFor="remember" className="padding-xs">Remember me</label>
                     </div>
-                    <p className="highlight" onClick={()=>setUser({email:"singhprabhat007@gmail.com",password:"prabhat007"})}>Test Credentials</p>
+                    <p className={LoginCSS.highlight} onClick={()=>setUser({email:"singhprabhat007@gmail.com",password:"prabhat007"})}>Test Credentials</p>
                 </div>
 
                 <button className="btn btn-primary d-100 head-sm">

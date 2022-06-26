@@ -44,9 +44,9 @@ export default function Navbar() {
             {
                 token ? 
                 <NavLink to="/profile" className="margin-xs">
-                    <div class="avatar avatar-xs">
+                    <div className="avatar avatar-xs">
                         <img
-                        class="img-responsive img-round"
+                        className="img-responsive img-round"
                         src={process.env.PUBLIC_URL + "/svg/avatarIcon.svg"}
                         alt="avatar"
                         />
