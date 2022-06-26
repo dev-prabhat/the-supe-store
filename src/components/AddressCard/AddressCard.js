@@ -1,4 +1,5 @@
-import { useAddress ,useModal} from "../Context"
+import { useAddress ,useModal} from "../../Context"
+import AddressCardCSS from "./addressCard.module.css"
 
 export const  AddressCard = ({address}) => {
    const {deleteAddress,setEditAddressData} = useAddress()
@@ -12,7 +13,7 @@ export const  AddressCard = ({address}) => {
    }
 
    return(
-      <div className="address-card">
+      <div className={AddressCardCSS.address__card}>
          <h1 className="head-sm margin-xs">{`${name} ${mobileNumber}`}</h1>
          <p className="head-sm margin-xs">{`${house} ${city} ${state} ${postalCode}`}</p>
          <button 

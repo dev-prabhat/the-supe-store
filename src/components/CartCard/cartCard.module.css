@@ -1,0 +1,64 @@
+.productcard__container {
+    background-color: var(--secondary-theme-color);
+    border-bottom: 1px dashed var(--dark-color);
+    display: flex;
+}
+
+.product__title{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--dark-color);
+    margin: 0.5rem;
+}
+
+.product__description{
+    width: 30rem;
+    word-break: break-all;
+    margin: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.discount__price{
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 900;
+    margin: 0 0.5rem;
+}
+
+.product__price{
+    color: var(--dark-theme-light-color);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-decoration: line-through;
+    margin: 0 0.5rem;
+}
+  
+.discount__percentage{
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: var(--dark-theme-light-color);
+    margin: 0 1rem 0 0.5rem;
+}
+
+.quantity__btn {
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 1px solid var(--light-color);
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.quantity__number {
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid var(--light-color);
+}
+  
+.button__container{
+    margin: 1rem 0;
+}
+
+.button__container > button{
+    margin: 0.5rem;
+}

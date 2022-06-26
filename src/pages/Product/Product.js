@@ -23,18 +23,20 @@ const Product = () => {
                 <section className="padding-md">
                     <h1 className="text-center head-xl">Loading...</h1>
                 </section> :
-                <section className={ProductPageCSS.products__container}>
-                    {
-                        currentPageProducts.map((Obj) => (
-                            <ProductCard key={Obj._id} productObj={Obj} />
-                        ))
-                    }
+                <>
+                    <section className={ProductPageCSS.products__container}>
+                        {
+                            currentPageProducts.map((Obj) => (
+                                <ProductCard key={Obj._id} productObj={Obj} />
+                            ))
+                        }
+                    </section>
                     <Pagination 
-                    productsPerPage={productsPerPage} 
-                    totalProducts={totalProducts.length} 
-                    setCurrentPage={setCurrentPage}
-                    />
-                </section>
+                        productsPerPage={productsPerPage} 
+                        totalProducts={totalProducts.length} 
+                        setCurrentPage={setCurrentPage}
+                        />
+                </> 
             }
         </main>
     )

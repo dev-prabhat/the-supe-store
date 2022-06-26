@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useAddress, useModal } from "../Context"
-import { Modal } from "./Modal/Modal"
-
+import { useAddress, useModal } from "../../Context"
+import { Modal } from "../Modal/Modal"
+import "./inputAddressModal.css"
 
 export const InputAddressModal = () => {
     const {putAddress} = useAddress()
@@ -78,7 +78,7 @@ export const InputAddressModal = () => {
                   value={addressValue.state}
                   required
                />
-               <button className="btn btn-primary form-btn d-100">Submit</button>
+               <button className="btn btn-primary form__btn d-100">Submit</button>
             </form>
             <button
                   onClick={()=>setAddressValue({
@@ -89,7 +89,7 @@ export const InputAddressModal = () => {
                      city:"Varanasi",
                      state:"Uttar Pradesh"
                   })} 
-                  className="btn btn-secondary form-btn d-100">
+                  className="btn btn-secondary form__btn d-100">
                   Dummy data
             </button>
          </Modal>

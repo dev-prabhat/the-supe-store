@@ -8,7 +8,7 @@ import ProductCardCSS from "./productCard.module.css"
 
 const ProductCard = ({ productObj , isWishlist = false }) => {
     const navigate = useNavigate()
-    const { name, image, price, star, tag, _id } = productObj
+    const { name, image, originalPrice, star, tag, _id } = productObj
     const {  cartItems , addToCart } = useCart()
     const { token } = useAuth()
     const { addToWishList, wishlistItems , deleteFromWishList } = useWishlist()
@@ -59,7 +59,7 @@ const ProductCard = ({ productObj , isWishlist = false }) => {
            
             <div className="card-description">
                 <p className="text-md font-weight-semibold text-center">{name}</p>
-                <p className="text-sm text-gray text-center">Rs {price.toLocaleString('en-IN')}</p>
+                <p className="text-sm text-gray text-center">Rs {originalPrice.toLocaleString('en-IN')}</p>
                 {
                     isProductInCart
                         ? <Link

@@ -1,17 +1,17 @@
 .grid__container {
   display: grid;
   grid-template-rows: auto 1fr;
+  grid-template-columns: 20% 1fr;
   grid-template-areas:
     "nav-bar nav-bar nav-bar nav-bar"
     "side-bar content content content";
+  position: relative;
 }
 
 .products__container {
   grid-area: content;
   background-color: var(--dark-theme-shade-80);
-  margin-left: 15rem; 
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  position: relative;
 }
