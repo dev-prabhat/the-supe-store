@@ -1,7 +1,7 @@
 import { Loader, Navbar , PrivateRoute} from './components'
 import { Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
-import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 , Profile , Address} from "./pages"
+import { Home, Product, Cart, Wishlist, Mock, SignUp, Login, Page404 , Profile , Address, Checkout} from "./pages"
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthRoute } from './components/AuthRoute';
 
@@ -30,6 +30,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/address" element={<Address/>}/>
+          <Route path='/checkout' element={<Checkout/>}/>
          </Route>
         
          <Route element={<AuthRoute/>}>

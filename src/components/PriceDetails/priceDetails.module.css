@@ -1,0 +1,41 @@
+.price,.discount,.delivery,.total{
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.delivery,.total{
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--dark-theme-shade-20);
+}
+
+.total{
+    padding: 1rem 0;
+}
+
+.price__title,.discount__title,.delivery__title{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.price__heading{
+    font-size: 1.5rem;
+    line-height: 3rem;
+    border-bottom: 2px solid var(--dark-theme-shade-20);
+}
+
+.order__btn{
+    padding: 0.5em 1em;
+    border: 1px solid var(--primary-theme-color);
+    cursor: pointer;
+    background-color: var(--primary-theme-color);
+    color: var(--secondary-theme-color);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}

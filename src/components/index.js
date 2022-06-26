@@ -11,6 +11,7 @@ import { Modal } from "./Modal/Modal"
 import { AddressCard } from "./AddressCard/AddressCard" 
 import { InputAddressModal } from "./InputAddressModal/InputAddressModal"
 import { EditAddressModal } from "./EditAddressModal"
+import { PriceDetails } from "./PriceDetails/PriceDetails"
 
 export { 
     CategoryCard,
@@ -25,5 +26,6 @@ export {
     Modal,
     AddressCard,
     InputAddressModal,
-    EditAddressModal
+    EditAddressModal,
+    PriceDetails
 }

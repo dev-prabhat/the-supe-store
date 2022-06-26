@@ -8,5 +8,6 @@ import { Login } from "./Login/Login"
 import {Page404} from './Page404/Page404'
 import { Profile } from "./Profile/Profile"
 import { Address } from "./Address/Address"
+import { Checkout } from "./Checkout/Checkout"
 
-export { Home, Product, Cart, Wishlist, Mock, SignUp, Login,Page404 , Profile ,Address}
+export { Home, Product, Cart, Wishlist, Mock, SignUp, Login,Page404 , Profile ,Address, Checkout}
