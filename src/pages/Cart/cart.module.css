@@ -1,0 +1,39 @@
+.grid__container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 0.75fr 0.25fr;
+  grid-template-areas:
+    "nav-bar nav-bar nav-bar nav-bar"
+    "content content cart cart";
+  padding: 0 1rem;
+}
+
+.mycart{
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.products__container {
+  grid-area: content;
+  margin: 2rem auto 1rem;
+  background-color: var(--secondary-theme-color);
+  padding: 0.5rem 1rem;
+}
+
+.price__section {
+  grid-area: cart;
+  width: 25rem;
+  margin: 2rem 1rem auto;
+}
+
+.price__description {
+  background-color: var(--secondary-theme-color);
+  padding: 1rem 0.5rem;
+}
+
+.emptygrid__container{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  margin: 1rem 0;
+}

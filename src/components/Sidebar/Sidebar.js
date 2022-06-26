@@ -1,5 +1,6 @@
 import React from "react"
-import { useFilter } from "../Context/Filter-Context"
+import { useFilter } from "../../Context/Filter-Context"
+import SidebarCSS from "./sidebar.module.css"
 
 const Sidebar = () => {
     const { filterDispatch, filterState } = useFilter()
@@ -16,7 +17,7 @@ const Sidebar = () => {
     }
 
     return (
-        <section className="side-bar padding-xs">
+        <section className={SidebarCSS.sidebar__container}>
             <div className="d-flex">
                 <h2 className="head-md margin-sm">Filters</h2>
                 <button className="btn btn-link btn-secondary head-sm margin-lf" onClick={resetAll}>

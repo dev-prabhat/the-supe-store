@@ -1,0 +1,7 @@
+.card__image{
+    cursor: pointer;
+    width: 25%;
+    height: 22rem;
+    position: relative;
+    margin: 0.5rem;
+}

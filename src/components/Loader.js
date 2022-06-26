@@ -8,7 +8,7 @@ export const Loader = () => {
     const {categoryLoader} = useCategories()
     if(!authLoader && !cartLoader && !wishListLoader && !categoryLoader) return null
     return(
-        <div className="loader-wrapper">
+        <div className="loader__wrapper">
             {authLoader && <ReactLoading type={"spinningBubbles"} color={"#ffa500"} width="10rem"/>}
             {cartLoader && <ReactLoading type={"spinningBubbles"} color={"#ffa500"} width="10rem"/>}
             {wishListLoader && <ReactLoading type={"spinningBubbles"} color={"#ffa500"} width="10rem"/>}

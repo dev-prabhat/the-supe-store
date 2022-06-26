@@ -10,36 +10,7 @@ body {
   background-color: var(--dark-theme-shade-80);
 }
 
-.nav-bar {
-  grid-area: nav-bar;
-  padding: 0rem 1rem;
-  border-bottom: 1px solid var(--dark-theme-shade-20);
-  background-color: var(--secondary-theme-color);
-  width: 100%;
-  position: fixed;
-  top:0%;
-  z-index: 22;
- 
-}
-
-.search-container {
-  width: 40%;
-  margin: 0 auto;
-}
-
-.search-icon {
-  left: 2%;
-  transform: translate(20%, -50%);
-}
-
-.nav-wishlist-icon,
-.nav-cart-icon,
-.search-icon {
-  font-size: 1.2rem;
-  color: var(--dark-theme-color);
-}
-
-.loader-wrapper{
+.loader__wrapper{
   position: fixed;
   top: 0%;
   bottom: 0%;

@@ -2,14 +2,14 @@ import React from 'react'
 import { useCategories } from "../../Context"
 import { CategoryCard } from "../../components/index"
 import landing_page from '../../assests/images/marvel-tee-1.jpg';
-import "./home.css"
-import '../common.css'
+import HomeCSS from "./home.module.css"
+import "../common.css"
 
 const Home = () => {
     const {categoriesFromBackend} = useCategories()
     return (
-        <main className="home-main">
-            <figure className="banner-image-container">
+        <main className={HomeCSS.main}>
+            <figure className={HomeCSS.image__container}>
                 <img
                     className="img-responsive"
                     src={landing_page}
@@ -17,7 +17,7 @@ const Home = () => {
                 />
             </figure>
             <p className='text-lg text-center'>Category</p>
-            <section className="category-container">
+            <section className={HomeCSS.categories__container}>
                 {
                     categoriesFromBackend.map((category) => (
                         <CategoryCard key={category.id} category={category} />

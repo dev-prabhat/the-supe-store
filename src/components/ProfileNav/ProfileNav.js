@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom"
-import { useAuth } from "../Context"
+import { useAuth } from "../../Context"
+import ProfileNavCSS from "./profileNav.module.css"
 
 export const ProfileNav = () =>{
     const {loggedUser:{firstName}} = useAuth()
     return(
-        <aside className="aside-nav">
-            <div className="profile padding-sm margin-xs">
+        <aside className={ProfileNavCSS.aside__nav}>
+            <div className={ProfileNavCSS.profile}>
                 <div className="avatar avatar-sm">
                     <img
                         className="img-responsive img-round"
@@ -18,7 +19,7 @@ export const ProfileNav = () =>{
                     <p className="head-sm">{firstName}</p>
                 </div>
             </div>
-            <div className="profilenav-wrapper margin-xs">
+            <div className={ProfileNavCSS.profilenav__wrapper}>
                 <NavLink className="btn btn-primary btn-link d-block head-sm margin-xs" to="/profile">
                     Profile
                 </NavLink>

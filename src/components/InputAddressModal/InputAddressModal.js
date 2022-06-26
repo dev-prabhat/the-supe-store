@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useAddress, useModal } from "../Context"
-import { Modal } from "./Modal/Modal"
-
+import { useAddress, useModal } from "../../Context"
+import { Modal } from "../Modal/Modal"
+import "./inputAddressModal.css"
 
 export const InputAddressModal = () => {
     const {putAddress} = useAddress()
@@ -27,7 +27,7 @@ export const InputAddressModal = () => {
             <form onSubmit={addressHandler}>
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="name"
                   onChange={(e)=>setAddressValue(prev => ({...prev,name:e.target.value}))}
                   value={addressValue.name}
@@ -36,7 +36,7 @@ export const InputAddressModal = () => {
             
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="mobile number"
                   onChange={(e)=>setAddressValue(prev => ({...prev,mobileNumber:e.target.value}))}
                   value={addressValue.mobileNumber}
@@ -45,7 +45,7 @@ export const InputAddressModal = () => {
 
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="PIN number"
                   onChange={(e)=>setAddressValue(prev => ({...prev,postalCode:e.target.value}))}
                   value={addressValue.postalCode}
@@ -54,7 +54,7 @@ export const InputAddressModal = () => {
 
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="Street No."
                   onChange={(e)=>setAddressValue(prev => ({...prev,house:e.target.value}))}
                   value={addressValue.house}
@@ -63,7 +63,7 @@ export const InputAddressModal = () => {
 
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="city"
                   onChange={(e)=>setAddressValue(prev => ({...prev,city:e.target.value}))}
                   value={addressValue.city}
@@ -72,13 +72,13 @@ export const InputAddressModal = () => {
 
                <input
                   type="text"
-                  class="form-field border-radius-xs padding-xs"
+                  className="form-field border-radius-xs padding-xs"
                   placeholder="state"
                   onChange={(e)=>setAddressValue(prev => ({...prev,state:e.target.value}))}
                   value={addressValue.state}
                   required
                />
-               <button className="btn btn-primary form-btn d-100">Submit</button>
+               <button className="btn btn-primary form__btn d-100">Submit</button>
             </form>
             <button
                   onClick={()=>setAddressValue({
@@ -89,7 +89,7 @@ export const InputAddressModal = () => {
                      city:"Varanasi",
                      state:"Uttar Pradesh"
                   })} 
-                  className="btn btn-secondary form-btn d-100">
+                  className="btn btn-secondary form__btn d-100">
                   Dummy data
             </button>
          </Modal>

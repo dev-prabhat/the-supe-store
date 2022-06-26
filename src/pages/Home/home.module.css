@@ -1,23 +1,18 @@
-.home-main{
+.main{
   background-color: var(--dark-theme-shade-80);
-  margin: 5rem 0;
+  margin: 1rem 0;
 }
 
-.banner-image-container {
+.image__container {
   height: 35rem;
   margin: 10px;
 }
 
-.category-container {
+.categories__container {
   width: 95%;
   margin: 1.5rem auto;
   display: flex;
   align-items: center;
 }
 
-.card-img {
-  cursor: pointer;
-  width: 25%;
-  height: 22rem;
-}
 

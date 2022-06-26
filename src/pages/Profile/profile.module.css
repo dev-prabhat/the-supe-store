@@ -1,0 +1,13 @@
+.grid__container{
+    display: grid;
+    grid-template-areas: "aside-nav content content content content content";
+    margin: 2rem 4rem 0;
+}
+
+.profile__details{
+    background-color: var(--primary-theme-shade-20);
+    grid-area: content;
+    height: 10rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}

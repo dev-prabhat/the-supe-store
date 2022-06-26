@@ -1,0 +1,19 @@
+.pagination__wrapper{
+    position: absolute;
+    bottom: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+.pagination__pills{
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--dark-theme-color);
+    list-style: none;
+    display: inline-block;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+  
+.pagination__pills:hover{
+    box-shadow: 0px 0px 5px 5px var(--dark-theme-color);
+}

@@ -49,7 +49,8 @@ const FilterProvider = ({ children }) => {
                     byPrice: "",
                     byCategoryNames: [],
                     byRating: "",
-                    price: 2500
+                    price: 2500,
+                    products:[...responseFromProduct.products]
                 }
             default:
                 return state
@@ -73,7 +74,7 @@ const FilterProvider = ({ children }) => {
 
         if (byPrice) {
             savedProduct = savedProduct.sort((a, b) => {
-                return byPrice === "High_to_Low" ? b.price - a.price : a.price - b.price
+                return byPrice === "High_to_Low" ? b.originalPrice - a.originalPrice : a.originalPrice - b.originalPrice
             })
         }
 
@@ -86,7 +87,7 @@ const FilterProvider = ({ children }) => {
         }
 
         if (price) {
-            savedProduct = savedProduct.filter(item => item.price <= price)
+            savedProduct = savedProduct.filter(item => item.originalPrice <= price)
         }
 
         return savedProduct

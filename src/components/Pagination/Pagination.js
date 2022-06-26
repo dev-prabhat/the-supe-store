@@ -1,4 +1,4 @@
-import React from 'react'
+import PaginationCSS from "./pagination.module.css"
 
 export const Pagination = ({productsPerPage, totalProducts, setCurrentPage }) => {
   const pageNumbers = []
@@ -8,12 +8,12 @@ export const Pagination = ({productsPerPage, totalProducts, setCurrentPage }) =>
   }
 
   return (
-    <div className='pagination-wrapper'>
+    <div className={PaginationCSS.pagination__wrapper}>
         <ul className="styled-list">
                 {
                     pageNumbers.map(number => (
                         <li key={number} 
-                            className="list-style-inline pagination-nav-pills"
+                            className={PaginationCSS.pagination__pills}
                             onClick={()=>setCurrentPage(number)}>
                             {number}
                         </li>
