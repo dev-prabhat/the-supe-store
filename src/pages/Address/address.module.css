@@ -1,5 +1,6 @@
 .grid__container{
     display: grid;
+    grid-template-columns: 25%;
     grid-template-areas: "aside-nav content content content content content";
     margin: 2rem 4rem 0;
 }
@@ -9,6 +10,7 @@
     grid-area: content;
     margin: 0.25rem;
     padding: 0.25rem;
+    width: 100%;
 }
 
 .address__div{

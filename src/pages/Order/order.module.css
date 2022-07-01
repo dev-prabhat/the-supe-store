@@ -1,0 +1,27 @@
+.grid__container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 25%;
+    grid-template-areas: "aside-nav content content content content content";
+    margin: 2rem 4rem 0;
+}
+
+.order__summary{
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--dark-color);
+    width: 100%;
+}
+
+.products__container {
+    background-color: var(--secondary-theme-color);
+    grid-area: content;
+    margin: 0.25rem;
+    padding: 0.25rem;
+}
+
+.emptygrid__container{
+    display: grid;
+    justify-content: center;
+    align-content: start;
+    margin: 1rem 0;
+}
