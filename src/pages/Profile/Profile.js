@@ -1,11 +1,13 @@
 import { useAuth } from "../../Context"
 import { ProfileNav } from "../../components"
+import { useDocument} from "../../customHooks"
 import ProfileCSS from  "./profile.module.css"
 
 export const Profile = () => {
-    const { loggedUser : {firstName,lastName, email} , logoutHandler} = useAuth()
+   useDocument("Profile")
+   const { loggedUser : {firstName,lastName, email} , logoutHandler} = useAuth()
    
-    return(
+   return(
        <main className={ProfileCSS.grid__container}>
         <ProfileNav/>
            

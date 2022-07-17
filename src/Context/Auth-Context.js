@@ -40,8 +40,14 @@ const AuthProvider = ({ children }) => {
     useEffect(()=>{
         if(response !== undefined){
             localStorage.setItem("token",response.encodedToken)
-            localStorage.setItem("loggedUser",JSON.stringify(response.foundUser))
-            setLoggedUser(response.foundUser)
+            if(response.foundUser){
+                localStorage.setItem("loggedUser",JSON.stringify(response.foundUser))
+                setLoggedUser(response.foundUser)
+            } 
+            if(response.createdUser){
+                localStorage.setItem("loggedUser",JSON.stringify(response.createdUser))
+                setLoggedUser(response.createdUser)
+            }  
             setToken(response.encodedToken)
         }
     },[response])

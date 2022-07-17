@@ -1,9 +1,11 @@
 import { CartCard, PriceDetails } from "../../components"
 import { useCart } from "../../Context"
+import {useDocument } from "../../customHooks"
 import CartCSS from  "./cart.module.css"
 
 
 const Cart = () => {
+    useDocument("Cart")
     const { cartItems } = useCart()
     
     return (

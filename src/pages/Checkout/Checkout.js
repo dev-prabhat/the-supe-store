@@ -1,10 +1,12 @@
 import { useModal , useAddress , useCart} from "../../Context";
 import { AddressCard, InputAddressModal, EditAddressModal, PriceDetails} from "../../components";
+import {useDocument } from "../../customHooks"
 import { MdAdd } from "react-icons/md";
 import CheckoutCSS from "./checkout.module.css"
 
 
 export const Checkout = () => {
+    useDocument("Checkout")
     const {addressArray} = useAddress()
     const {setIsModal} = useModal()
     const {cartItems} = useCart()

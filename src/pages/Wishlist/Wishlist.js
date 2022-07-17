@@ -1,8 +1,10 @@
 import { useWishlist } from "../../Context"
 import { ProductCard} from "../../components"
+import { useDocument } from "../../customHooks"
 import WishlistCSS  from "./wishlist.module.css"
 
 const Wishlist = () => {
+    useDocument("WishList")
     const { wishlistItems } = useWishlist()
     return (
         <>

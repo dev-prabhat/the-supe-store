@@ -12,7 +12,7 @@ function App() {
     <>
       <Navbar />
       <Loader/>
-      <ToastContainer position="bottom-right"
+      <ToastContainer position="top-center"
         autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}

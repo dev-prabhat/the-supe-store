@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import {toast} from "react-toastify"
 import { useCart ,useAddress} from "../../Context"
 import PriceDetailsCSS from "./priceDetails.module.css"
 
@@ -40,7 +41,7 @@ export const PriceDetails = ({isCheckoutPage = false}) => {
 
     const placeOrder = async (amount) => {
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-        if(addressArray.length === 0 ) return  alert("Enter shipping address...")
+        if(addressArray.length === 0 ) return  toast("Enter shipping address...")
 
         if(!res) {
             alert("Please check your internet connection...")

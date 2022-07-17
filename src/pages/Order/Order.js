@@ -1,9 +1,11 @@
 import { CartCard, ProfileNav } from "../../components"
 import { useCart } from "../../Context"
+import { useDocument } from "../../customHooks"
 import OrderCSS from  "./order.module.css"
 
 
 export const Order = () => {
+    useDocument("Order")
     const { orderSummaryItems } = useCart()
     
     return (

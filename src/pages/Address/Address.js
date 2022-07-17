@@ -1,9 +1,11 @@
 import { useModal , useAddress} from "../../Context";
 import { ProfileNav , AddressCard, InputAddressModal,EditAddressModal} from "../../components"
+import {useDocument } from "../../customHooks"
 import { MdAdd } from "react-icons/md";
 import AddressCSS  from "./address.module.css"
 
 export const Address = () => {
+   useDocument("Address")
    const {addressArray} = useAddress()
    const {setIsModal} = useModal()
    
