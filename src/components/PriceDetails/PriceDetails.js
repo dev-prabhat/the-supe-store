@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom"
-import { useCart } from "../../Context"
+import { Link, useNavigate } from "react-router-dom"
+import {toast} from "react-toastify"
+import { useCart ,useAddress} from "../../Context"
 import PriceDetailsCSS from "./priceDetails.module.css"
 
 export const PriceDetails = ({isCheckoutPage = false}) => {
-    const {cartItems} = useCart()
-
+    const {addressArray} = useAddress()
+    const {cartItems, clearCart} = useCart()
+    const navigate = useNavigate()
     const initialState = {
         originalPrice: 0,
         qty: 0,
@@ -20,6 +22,51 @@ export const PriceDetails = ({isCheckoutPage = false}) => {
         discount: acc.discount + (currentProduct.originalPrice - currentProduct.discountedPrice) * currentProduct.qty
     }), initialState)
 
+    const loadScript = (src) => {
+        return new Promise((resolve)=>{
+            const script = document.createElement("script")
+            script.src = src
+
+            script.onload = ()=>{
+                resolve(true)
+            }
+
+            script.onerror = () => {
+                resolve(false)
+            }
+
+            document.body.appendChild(script)
+        })
+    }
+
+    const placeOrder = async (amount) => {
+        const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+        if(addressArray.length === 0 ) return  toast("Enter shipping address...")
+
+        if(!res) {
+            alert("Please check your internet connection...")
+        }
+
+        const options = {
+            key: "rzp_test_Y4RSrTkVu0YoNb",
+            currency: "INR",
+            amount: amount * 100,
+            name: "SupeStore",
+            description: "Thanks for purchasing",
+      
+            handler: function () {
+              clearCart()
+              navigate("/order")
+            },
+            prefill: {
+              name: "Prabhat Singh",
+              email: "singhprabhat007@gmail.com",
+              contact: "9758622359",
+            },
+          };
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+    }
 
     return(
         <>
@@ -41,8 +88,10 @@ export const PriceDetails = ({isCheckoutPage = false}) => {
                 <span>Rs{checkout.originalPrice - checkout.discount + checkout.delivery}</span>
             </div>
             {
-                isCheckoutPage ? 
-                <button className={PriceDetailsCSS.order__btn}>
+                isCheckoutPage ?
+                <button 
+                    className={PriceDetailsCSS.order__btn} 
+                    onClick={()=>placeOrder(checkout.originalPrice - checkout.discount + checkout.delivery)}>
                     Place Order
                 </button> :
                 <Link to="/checkout" className={PriceDetailsCSS.order__btn}>

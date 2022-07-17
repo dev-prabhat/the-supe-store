@@ -6,6 +6,7 @@ const CartContext = createContext()
 const CartProvider = ({ children }) => {
     const {response,loading:cartLoader,operation} = useAxios()
     const [cartItems, setCartItems] = useState([])
+    const [orderSummaryItems, setOrderSummaryItems] = useState([])
 
     const addToCart =  async (product) => {
         const encodedToken = localStorage.getItem("token");
@@ -22,6 +23,16 @@ const CartProvider = ({ children }) => {
         operation({
             method:"delete",
             url:`/api/user/cart/${productID}`,
+            headers: { "authorization": encodedToken }
+        })
+    }
+
+    const clearCart = async () => {
+        setOrderSummaryItems([...cartItems])
+        const encodedToken = localStorage.getItem("token");
+        operation({
+            method:"delete",
+            url:"/api/user/cart/all",
             headers: { "authorization": encodedToken }
         })
     }
@@ -52,7 +63,15 @@ const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartItems,  addToCart, deleteFromCart, increaseQty, decreaseQty,cartLoader }}>
+        <CartContext.Provider 
+        value={{ cartItems,
+        orderSummaryItems,
+        addToCart,
+        deleteFromCart,
+        increaseQty,
+        decreaseQty,
+        cartLoader,
+        clearCart }}>
             {children}
         </CartContext.Provider>
     )

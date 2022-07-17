@@ -1,10 +1,12 @@
 import {useState} from "react"
 import { ProductCard, Sidebar , Pagination} from "../../components/index"
 import { useFilter } from '../../Context'
+import { useDocument} from "../../customHooks"
 import ProductPageCSS from  "./product.module.css"
 import '../common.css'
 
 const Product = () => {
+    useDocument("Products")
     const [currentPage, setCurrentPage] = useState(1)
     const [productsPerPage] = useState(6)
     const { filteredProduct , loadingFromProducts} = useFilter()

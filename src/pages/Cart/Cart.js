@@ -1,9 +1,11 @@
 import { CartCard, PriceDetails } from "../../components"
 import { useCart } from "../../Context"
+import {useDocument } from "../../customHooks"
 import CartCSS from  "./cart.module.css"
 
 
 const Cart = () => {
+    useDocument("Cart")
     const { cartItems } = useCart()
     
     return (
@@ -14,7 +16,7 @@ const Cart = () => {
                             <h1 className={CartCSS.mycart}>MyCart({cartItems.length})</h1>
                         {
                             cartItems.length > 0 && cartItems.map((productObj) => (
-                                <CartCard key={productObj._id} productObj={productObj} />
+                                <CartCard key={productObj._id} productObj={productObj} isCartPage={true}/>
                             ))
                         }
                     </section>

@@ -2,9 +2,11 @@ import { useState } from "react"
 import { useAuth } from "../../Context"
 import { Link } from "react-router-dom"
 import { BiHide,BiShow } from "react-icons/bi";
+import { useDocument } from "../../customHooks"
 import SignupCSS from  "./signup.module.css"
 
 export const SignUp = () => {
+    useDocument("Signup")
     const [isVisible, setIsVisible] = useState(false)
     const [newUser, setNewUser] = useState({firstName:"",lastName:"",email:"",password:""})
     const { signupUser } = useAuth()

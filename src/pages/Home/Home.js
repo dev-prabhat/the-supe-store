@@ -1,11 +1,13 @@
 import React from 'react'
 import { useCategories } from "../../Context"
 import { CategoryCard } from "../../components/index"
+import {useDocument } from "../../customHooks"
 import landing_page from '../../assests/images/marvel-tee-1.jpg';
 import HomeCSS from "./home.module.css"
 import "../common.css"
 
 const Home = () => {
+    useDocument("Home")
     const {categoriesFromBackend} = useCategories()
     return (
         <main className={HomeCSS.main}>
